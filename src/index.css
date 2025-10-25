@@ -2,11 +2,18 @@
 *{
   margin:0;
   padding:0;
+  background-color: black;
+color:white;
  
 }
 .header,.body,.footer{
   border:1vh solid black;
 
+}
+button{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -21,9 +28,10 @@
 /*Navbar Component*/
 .navbar{
   
-  height:11vh;  background-color: rgb(77, 75, 133);
+height:11vh;
+
   margin-top:0;
-  border:1vh solid black;
+  border:1vh solid white;
  border-bottom:0.5vh;
 
   display: flex;
@@ -44,7 +52,8 @@
 /*Body Component*/
 .body{
   height:80vh;
-  background-color: rgb(192, 161, 35);
+
+  border:1vw solid white;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -95,8 +104,9 @@ img{
   text-align:center;
   align-items: center;
   justify-content: center;
-  background-color: rgb(200, 150, 64);
-  border:.1vh solid black;
+  
+  
+  border:.1vh solid white;
 }
 
 .footer-text{
@@ -132,4 +142,11 @@ img{
   border:0.2vw solid white;
   text-align:center;
 
+}
+
+/*Card Component*/
+.card{
+  background-color: #1a1e23;
+  height:50vh;
+  width:30vw;
 }

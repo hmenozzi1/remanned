@@ -1,7 +1,7 @@
 import '../index.css';
 
 
-function Button(props){
+export default function  Button(props){
     return (
         <>
         <button className="btn">{props.name}
@@ -12,4 +12,3 @@ function Button(props){
     );
 }
 
-export default Button;
