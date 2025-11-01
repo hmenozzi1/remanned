@@ -4,22 +4,45 @@ import Body from "../components/Body.jsx";
 import Card from "../components/Card.jsx";
 import ProfileBanner from '../components/ProfileBanner.jsx';
 import Sidebar from '../components/SideBar.jsx';
-export function Journal(){
+export function Goals(){
     return(<>
-    
+        
     <Body>
+
 <ProfileBanner/>
 <Sidebar/>
 
-       <h1>Sign Up Page</h1>
-      <Card></Card>
-     
+
+
+   
+  <Card>
+
+         <h1>HQ</h1>
+    <h1>AQ</h1>
+    <h1>MQ</h1>
+    </Card>
+      
+
+
+
+    <Card></Card>
+
+
+
+
+
+
+
+
+
+
     </Body>
+  
+
+     
+ 
+       <Footer></Footer>
     
-     <Footer></Footer>
-        </>
     
-    
-    
-   );
+    </>);
 }

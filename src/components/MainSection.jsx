@@ -1,9 +1,9 @@
 import "../index.css";
 
 
-export default function Card({children}){
+export default function MainSection({children}){
     return(<>
-    <div className="card">
+    <div id="main-section">
 {children}
     </div>
     

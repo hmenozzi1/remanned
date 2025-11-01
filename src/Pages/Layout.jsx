@@ -2,7 +2,8 @@
  import {Outlet} from "react-router-dom";
  
  
- export function Layout(){
+ export function Layout({showNavbar=true}){
+    {showNavbar && <Navbar/>}
     {/*All pages will be children to this layout */}
     return(
     <>

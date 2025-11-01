@@ -11,6 +11,8 @@ import {Login} from './Pages/Login.jsx';
 import {WelcomePage} from './Pages/WelcomePage.jsx';
 import {SignUp} from './Pages/SignUp.jsx';
 import {Layout} from './Pages/Layout.jsx';
+import { Goals } from './Pages/Goals.jsx';
+import { History } from './Pages/History.jsx';
 
 
 function App (){
@@ -23,6 +25,8 @@ function App (){
     <Route path="/SignUp.jsx" element={<SignUp/>}/>
     <Route path="/Login.jsx" element={<Login/>}/>
     <Route path="/Dashboard.jsx" element={<Dashboard/>}/>
+    <Route path="/Goals.jsx" element={<Goals/>}/>
+    <Route path="/History.jsx" element={<History/>}/>
     <Route path="/Journal.jsx" element={<Journal/>}/>
     
     </Route>

@@ -3,13 +3,10 @@
   margin:0;
   padding:0;
   background-color: black;
-color:white;
- 
+  color:white;
+  
 }
-.header,.body,.footer{
-  border:1vh solid black;
 
-}
 button{
   text-align: center;
   align-items: center;
@@ -21,25 +18,93 @@ button{
 
 
 
+/*Sidebar Component*/
+#sidebar-container{
+  height:100vh;
+  background-color: black;
+  border:0.5vw solid white;
+  float:left;
+  overflow: hidden;
+}
+#sidebar-list{
+display: flex;
+padding-top:2vh;
+padding-left:1vh;
+flex-direction:column;
+list-style-type: none;
+  text-decoration-line: none;
+}
+.sidebar-nav-link{
+  text-decoration-line: none;
 
 
 
+}
+.sidebar-nav-item{
+  display: flex;
+  flex-direction:row;
+  font-size:3vw;
+  list-style-type: none;
+  text-decoration-line: none;
+  color:rgb(125, 114, 55);
+}
+.sidebar-nav-item:hover{
+  font-size:3vw;
+  list-style-type: none;
+  text-decoration-line: none;
+  background-color:rgb(125, 114, 55);
+  color:white;
+}
+
+.sidebar-icon{
+  height:6vh;
+  width:3vw;
+}
+
+#end-session-btn{
+  float:bottom;
+}
+
+
+
+
+/*Profile Banner Component */
+#profile-banner{
+  width:60vw;
+  height:20vw;
+  border:1vw solid white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  float:top;
+}
+
+#profile-banner-header{
+  color:gold;
+  font-size:2vw;
+}
+
+#profile-img{
+  height:20vh;
+  width:10vw;
+  float:right;
+}
 
 /*Navbar Component*/
 .navbar{
   
-height:11vh;
-
+  height:11vh;
+  
   margin-top:0;
-  border:1vh solid white;
- border-bottom:0.5vh;
-
+  border:0.2vh solid white;
+  border-bottom:0.5vh;
+  
   display: flex;
   justify-content: space-between;
   text-align: center;
   align-items: center;
-
- 
+  
+  
 }
 
 .nav-items{
@@ -49,14 +114,32 @@ height:11vh;
 }
 
 /*Header Component ends*/
+
+
+/*Main Section Component*/
+#main-section{
+  height:400vh;
+width:200vw;
+background-color: rgb(174, 174, 124)  ;
+}
+/*Main Section Component Ends*/
+
+
+
+
+
+
 /*Body Component*/
 .body{
-  height:80vh;
+  height:100%;
+  
 
-  border:1vw solid white;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+
+  align-items: center;
+
+ 
 }
 
 .title{
@@ -67,8 +150,8 @@ height:11vh;
 }
 .slogan{
   font-size:4vw;
-text-align:center;
-font-size:2vw;
+  text-align:center;
+  font-size:2vw;
 }
 
 .sub-title{
@@ -81,11 +164,11 @@ font-size:2vw;
 .body-img{
   height:25vh;
   width:15vw;
-justify-content: center;
-text-align: center;
+  justify-content: center;
+  text-align: center;
 }
 img{
-    display: flex;
+  display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
@@ -99,19 +182,103 @@ img{
 /*Footer Component*/
 
 .footer{
-  height:11vh;
-  display: flex;
-  text-align:center;
-  align-items: center;
-  justify-content: center;
-  
-  
-  border:.1vh solid white;
+  height:10vh;
+align-items: center;
+text-align: center;
+  display: flex;;
+border-top:0.05vw solid rgb(161, 154, 154);
 }
 
 .footer-text{
-  font-size:1.4vw;
+  font-size:1.6vw;
+  display: flex;
+  margin-left:70vh;
 }
+
+
+#footer-list{
+display: flex;
+flex-direction:row;
+justify-content: space-between;
+gap:2vh;
+list-style-type:none;
+float:left;
+  margin-left:13vh;
+}
+
+.footer-list-items{
+  list-style-type: none;
+  font-size:1vw;
+  font-weight:bold;
+  color:gray;
+
+}
+
+#social-media-list{
+  display: flex;
+  flex-direction:row;
+list-style-type:none;
+margin-top:1.2vh;
+
+
+  
+ 
+   
+margin-left:150vh;
+align-items:center;
+text-align: center;
+gap:1vh;
+}
+
+.social-media-icon{
+  height:5vh;
+  width:5vw;
+
+}
+
+#linkedin-icon{
+    height:5vh;
+    width:3vw;
+    background-color: #182434;
+    
+    border-radius:10%;
+    font-size:1.8vw;
+    color:white;
+    text-decoration-line:  none;
+
+
+ 
+    
+}
+
+#github-icon{
+    
+    height:5vh;
+    width:2.4vw;
+    background-color: #182434;
+    border-radius:10%;
+    font-size:2vw;
+    color:white;
+    text-decoration-line:  none;
+  
+ 
+    
+}
+
+#twitter-icon{  
+    height:5vh;
+    width:2.6vw;
+  
+    background-color: #182434;
+    color:white;
+    border-radius:10%;
+    font-size:2vw;
+    text-decoration-line:  none;
+    
+    
+}
+
+
 
 
 
@@ -126,27 +293,276 @@ img{
 
 
 
-
-
-
 /*Button Component*/
 .btn{
-  background-color: rgb(0, 0, 0);
-  color:rgb(255, 255, 255);
-  height:10vh;
-  width:14vw;
+ background-color: #9d8559;
+  color:white;
+  font-weight:bold;
+  height:8vh;
+  width:25vw;
+  font-size:1.2vw;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius:0.4vw;
+  border: 0.2vw solid black;
+  display: flex;
   justify-content: center;
-  border-radius:2vw;
-  font-weight:600;
-  font-size:3vw;
-  border:0.2vw solid white;
   text-align:center;
-
+  align-items: center;
+  
 }
 
 /*Card Component*/
 .card{
-  background-color: #1a1e23;
-  height:50vh;
+height:50vh;
+width:40vw;
+background-color: #1a1e23;
+border:0.3 solid rgb(255, 255, 255);
+}
+
+
+
+
+/*Pages*/
+
+/*Welcome Page*/
+
+#welcome-page-container{
+  display: flex;
+  flex-direction:column;
+  gap:10vh;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#remanned-banner{
+  width:8F0vw;
+  height:20vh;
+}
+#remanned-arc{
+  height:20vh;
+  width:90vw;
+
+
+}
+
+#welcome-page-header{
+  font-size:3vw;
+color: #9d8559;
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header-list{
+ display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+
+
+}
+
+#header-list-1{
+  justify-content: space-around;
+  width:100vw;
+
+
+}
+
+
+
+#header-list-2{
+ width:100vw;
+}
+.header-list-items{
+color:white;
+font-weight:bold;
+text-transform: uppercase;
+text-decoration: none;
+font-size:2vw;
+list-style-type:none;
+
+border-radius:0.4vw;
+padding:0.4vw;
+
+
+}
+
+.header-list-items:hover{
+  background-color: rgb(224, 217, 149);
+  opacity:0.5vw;
+}
+
+#welcome-page-btn{
   width:30vw;
 }
+
+
+
+
+
+#venn-diagram-img{
+  height: 30vh;
+  width: 30vw;
+  margin-bottom:5vh;
+}
+
+
+
+/*End of Welcome Page*/
+
+
+/*Login Page*/
+
+.contact-form, .input-container, .name-container, .email-container {
+    background-color: #1a1e23; /* these override the background! */
+}
+
+.input-container{
+    background-color: 
+#272c35;
+}
+
+#text-support-link{
+  text-transform: uppercase;
+}
+.contact-form-header{
+  font-weight:bold;
+  color:white;
+  font-size: 3.5vw;
+}
+.contact-form{
+color:white;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+align-items: center;
+gap:2vw;
+  background-color: #1a1e23;
+  height:100vh;
+  width:50vw;
+  border-radius:1vw;
+  margin-bottom:5vh;
+
+}
+
+
+.user-admin-toggle{
+  border:0.5vw solid rgb(255, 255, 255);
+  height:10vh;
+  width:30vw;
+  font-size:0.3vw;
+}
+#user-admin-text{
+font-size:0.4vw;
+}
+
+.toggle-switch{
+   position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.slider{
+   position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3; /* Blue when checked */
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.input-container{
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+gap:2vw;
+
+}
+
+
+
+.form-input-labels{
+font-size:2vw;
+
+}
+
+.form-input{
+height:5vh;
+width:38vw;
+background-color: #272c35;
+opacity: 0.6;
+}
+
+.form-input::placeholder{
+  font-size:1.5vw;
+  color:white;
+}
+
+.input-container-2{
+  display: flex;
+  flex-direction: row;
+  gap:4vh;
+}
+
+.form-input-2{/*checkbox*/
+height:4vh;
+width:4vw;
+}
+#remember-me-label{
+  list-style-type: none;
+  font-size:1.5vw;
+ 
+}
+
+.tech-support-btn{
+   font-size:1.5vw;
+}
+#tech-support-link{
+   font-size:1.5vw;
+}
+
+
+/*End of Login Page*/
+
+
+
+
+
+
+
+
+
+/*Pages End*/
