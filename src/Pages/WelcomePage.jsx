@@ -19,7 +19,7 @@ navigate("/Login.jsx");
         
       <Body>
      <div id="welcome-page-container">
-<img src="src\assets\Screenshot 2025-10-30 150421.png" id="remanned-banner" alt="" />
+<img src="src\assets\Screenshot 2025-10-30 150421.png" className="remanned-banner" alt="" />
          
        <h1 id="welcome-page-header">Welcome Back</h1>
         <ul id="header-list-1" className="header-list">

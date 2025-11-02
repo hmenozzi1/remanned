@@ -12,7 +12,7 @@ function  Footer({children}){
         
       </ul>
 
-      <div id="footer-text"><p>Copyright @ 2025 All Rights Reserved</p></div>
+      <div id="footer-text"><pre>Copyright @ 2025 All Rights Reserved</pre></div>
 
 
 

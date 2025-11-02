@@ -6,16 +6,18 @@ export default function Sidebar({children}){
     return(<>   
     <div id="sidebar-container">
       <ul id="sidebar-list">
-      <Link to="/Dashboard.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"><img src="src\assets\images - Copy.png" className="sidebar-icon" alt="" />Dashboard</li></Link>
-      <Link to="/Goals.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"><img src="src\assets\images - Copy.png" className="sidebar-icon"/>Goals</li></Link>
-      <Link to="/History.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images - Copy.png" className="sidebar-icon"/>History</li></Link>
-      <Link to="/Journal.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images - Copy.png" className="sidebar-icon"/>Journal</li></Link>
+      <Link to="/Dashboard.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"><img src="src\assets\dashboard-icon-style-free-vector.jpg" className="sidebar-icon" alt="" />Dashboard</li></Link>
+      <Link to="/Goals.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"><img src="src\assets\white-strategy-icon-33.png" className="sidebar-icon"/>Goals</li></Link>
+      <Link to="/History.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images.png" className="sidebar-icon"/>History</li></Link>
+      <Link to="/Journal.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images (1).png" className="sidebar-icon"/>Journal</li></Link>
  
      
       </ul>
     <Button   name="End Session" className="end-session-btn"  
-    icon={<FaBars/>} 
-     style={{ backgroundColor: "#de3b40", marginTop: "50vh" }} />
+
+    icon={ <img src="src\assets\white-strategy-icon-33.png" className="sidebar-icon" alt="" />} 
+     style={{ backgroundColor: "#de3b40", marginTop: "58vh", width:"15vw", float:"bottom", marginLeft:"2vh"} } />
+    
      
         </div>
         </>);

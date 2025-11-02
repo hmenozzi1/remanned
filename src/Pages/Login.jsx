@@ -17,7 +17,8 @@ export function Login(){
     
     <Body>
     <div id="login-container">
-    <img src="src\assets\Screenshot 2025-10-30 150421.png" id="remanned-banner" alt="" />
+    <img src="src\assets\Screenshot 2025-10-30 150421.png" class="remanned-banner" alt="" />
+    <div className="card-container">
     <Card>
     
     <Form>
@@ -87,6 +88,7 @@ export function Login(){
     
     
     </Card>
+    </div>
     </div>
     
     

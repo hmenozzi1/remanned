@@ -4,44 +4,24 @@ import Body from "../components/Body.jsx";
 import Card from "../components/Card.jsx";
 import ProfileBanner from '../components/ProfileBanner.jsx';
 import Sidebar from '../components/SideBar.jsx';
+import DashboardLayout from '../components/DashboardLayout.jsx';
 export function Goals(){
     return(<>
         
-    <Body>
+   <DashboardLayout>
+      <Card id="top-card">
+        <h1>Set Your Goals</h1>
+      </Card>
 
-<ProfileBanner/>
-<Sidebar/>
-
-
-
-   
-  <Card>
-
-         <h1>HQ</h1>
-    <h1>AQ</h1>
-    <h1>MQ</h1>
-    </Card>
-      
-
-
-
-    <Card></Card>
-
-
-
-
-
-
-
-
-
-
-    </Body>
-  
-
-     
- 
-       <Footer></Footer>
+      <div id="bottom-card-container">
+        <Card className="bottom-card">
+          <h2>Short Term</h2>
+        </Card>
+        <Card className="bottom-card">
+          <h2>Long Term</h2>
+        </Card>
+      </div>
+    </DashboardLayout>
     
     
     </>);
