@@ -24,9 +24,14 @@ export function Dashboard(){
           
           <Card id="top-card">
           
-          <h1>HQ</h1>
-          <h1>AQ</h1>
-          <h1>MQ</h1>
+          <h1 id="top-card-header">MQ3TM Cycle Overview</h1>
+          <h2 id="top-card-subheader">Your journey through the MQ3TM cycle</h2>
+          <img src="src\assets\Screenshot 2025-11-03 144303.png" id="mq-img" alt="" />
+         <ul id="mq-list">
+          <li className="mq-list-option">Completed Works</li>
+          <li className="mq-list-option">Checkpoints</li>
+          <li className="mq-list-option">Upcoming Works</li>
+         </ul>
           </Card>
           <div id="bottom-card-container">
                <Card className="bottom-card">

@@ -15,7 +15,7 @@ export function Login(){
     
     <>
     
-    <Body>
+    <Body style={{height:"130vh" }}>
     <div id="login-container">
     <img src="src\assets\Screenshot 2025-10-30 150421.png" class="remanned-banner" alt="" />
     <div className="card-container">

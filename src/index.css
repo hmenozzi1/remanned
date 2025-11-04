@@ -155,10 +155,9 @@ margin-right:2vh;
 
 /*Body Component*/
 .body{
-  height:130vh;
+  height:auto;
 
-  display: flex;
-  justify-content: center;
+
 
   
 
@@ -206,7 +205,7 @@ img{
 
 .footer{
   height:10vh;
-  float:bottom;
+
 align-items: center;
 text-align: center;
   display: flex;;
@@ -325,7 +324,7 @@ gap:1vh;
   font-weight:bold;
   height:8vh;
   width:25vw;
-  font-size:1.2vw;
+  font-size:1.4vw;
   font-family: Arial, Helvetica, sans-serif;
   border-radius:0.4vw;
   border: 0.2vw solid black;
@@ -348,20 +347,35 @@ border:0.3 solid rgb(255, 255, 255);
 
 
 /*Pages*/
+/*Splash Screen Page*/
+#splash-screen-page-container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.remanned-logo{
+  height:50vh;
+  width:90vw;
+}
+/*Splash Screen Page ends*/
 
 /*Welcome Page*/
 
 #welcome-page-container{
   display: flex;
+ 
   flex-direction:column;
-  gap:10vh;
+
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 5vh;                /* space between items */
-  margin-top:26vh;
-margin-bottom: 20vh;    /* extra space for footer */
+gap:2vh;
+          
 
+   
 
 }
 .remanned-banner{
@@ -424,7 +438,7 @@ padding:0.4vw;
 
 #welcome-page-btn{
   width:30vw;
-  height:40vh;
+
 }
 
 
@@ -453,13 +467,13 @@ padding:0.4vw;
 .card-container{
   margin-left:50vh;
 }
-.contact-form, .input-container, .name-container, .email-container {
+.contact-form, .input-container, .name-container, .username-container, .email-container {
     background-color: #1a1e23; /* these override the background! */
 }
 
 .input-container{
-    background-color: 
-#272c35;
+    background-color: #1a1e23;
+ 
 }
 
 #text-support-link{
@@ -468,6 +482,8 @@ padding:0.4vw;
 .contact-form-header{
   font-weight:bold;
   color:white;
+
+  background-color: #1a1e23;
   font-size: 3.5vw;
 }
 .contact-form{
@@ -478,31 +494,41 @@ justify-content: center;
 text-align: center;
 align-items: center;
 gap:2vw;
-  background-color: #1a1e23;
-  min-height:70vh;
-  height:100vh;
+    background-color: #1a1e23;
+
+  height:107vh;
   width:50vw;
   border-radius:1vw;
-  margin-bottom:5vh;
+  margin-bottom:8vh;
 
 }
 
 
 .user-admin-toggle{
-  border:0.5vw solid rgb(255, 255, 255);
-  height:10vh;
+  
+  height:7vh;
   width:30vw;
   font-size:0.3vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+   background-color: #1a1e23;
+ 
 }
-#user-admin-text{
-font-size:0.4vw;
+.user-admin-text{
+font-size:1.7vw;
+ background-color: #1a1e23;
+ 
 }
 
 .toggle-switch{
    position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 2vw;
+  height: 2vh;
+  margin-left:2vh;
+  margin-right:2vh;
+  justify-content: center;
 }
 
 .slider{
@@ -558,24 +584,31 @@ gap:2vw;
 
 .form-input-labels{
 font-size:2vw;
+ background-color: #1a1e23;
+ 
 
 }
 
 .form-input{
-height:5vh;
+height:5.4vh;
 width:38vw;
 background-color: #272c35;
 opacity: 0.6;
+border-radius:0.2vw;
+align-items: center;
 }
 
 .form-input::placeholder{
   font-size:1.5vw;
   color:white;
+  padding-top:0.5vh;
 }
 
 .input-container-2{
   display: flex;
   flex-direction: row;
+   background-color: #1a1e23;
+ 
   gap:4vh;
 }
 
@@ -586,11 +619,16 @@ width:4vw;
 #remember-me-label{
   list-style-type: none;
   font-size:1.5vw;
+ background-color: #1a1e23;
+ 
  
 }
 
 .tech-support-btn{
    font-size:1.5vw;
+    background-color: #1a1e23;
+    margin-bottom:2vh;
+ 
 }
 #tech-support-link{
    font-size:1.5vw;
@@ -631,6 +669,32 @@ background-color: rgb(174, 174, 124)  ;
 
 #top-card{
 width:50vw ;
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+}
+
+#top-card-header{
+color:#937d55;
+font-size: 3vw;
+}
+
+#top-card-subheader{
+color:silver;
+}
+#mq-list{
+list-style-type: none;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+background-color: #1a1e23;
+opacity: 0.7;
+
+}
+
+.mq-list-option{
+
 }
 #bottom-card-container{
   display: flex;

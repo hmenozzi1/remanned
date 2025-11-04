@@ -7,6 +7,7 @@ function Navbar(){
     <div className="navbar">
     
     <Link to="/" className="nav-items">Home</Link>
+    <Link to="/SplashScreen.jsx" className="nav-items">SplashScreen</Link>
   
    
     <Link to="/SignUp.jsx" className="nav-items">SignUp</Link>

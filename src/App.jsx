@@ -13,6 +13,7 @@ import {SignUp} from './Pages/SignUp.jsx';
 import {Layout} from './Pages/Layout.jsx';
 import { Goals } from './Pages/Goals.jsx';
 import { History } from './Pages/History.jsx';
+import {SplashScreen} from './Pages/SplashScreen.jsx';
 
 
 function App (){
@@ -22,6 +23,7 @@ function App (){
     <Routes>
     <Route element={<Layout/>}>//prop element
     <Route path="/" element={<WelcomePage/>}/>//default element
+     <Route path="/SplashScreen.jsx" element={<SplashScreen/>}/>//default element
     <Route path="/SignUp.jsx" element={<SignUp/>}/>
     <Route path="/Login.jsx" element={<Login/>}/>
     <Route path="/Dashboard.jsx" element={<Dashboard/>}/>

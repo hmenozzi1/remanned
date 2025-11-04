@@ -2,10 +2,10 @@
 import Button from './Button.jsx';
 import '../index.css';
 
-function Body({children}){
+function Body({children, style}){
     return(
         <>
-        <div className="body">
+        <div className="body" style={style}>
         {children}  {/* This is essential */}
         
         
