@@ -1,9 +1,9 @@
 import "../index.css";
 
 
-export default function Card({children}){
+export default function Card({children, style}){
     return(<>
-    <div className="card">
+    <div className="card" style={style}>
 {children}
     </div>
     

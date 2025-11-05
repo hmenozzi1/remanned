@@ -8,7 +8,7 @@ export function Journal(){
     return(<>
     <DashboardLayout>
       {/* Top card */}
-      <Card id="top-card">
+       <Card id="top-card" style={{width:"200vw"}}>
         <h1>Daily Journal</h1>
       </Card>
 

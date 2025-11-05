@@ -9,7 +9,7 @@ export function Goals(){
     return(<>
         
    <DashboardLayout>
-      <Card id="top-card">
+      <Card id="top-card" style={{width:"200vw"}}>
         <h1>Set Your Goals</h1>
       </Card>
 

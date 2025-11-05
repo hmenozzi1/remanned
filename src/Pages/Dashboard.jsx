@@ -22,7 +22,7 @@ export function Dashboard(){
           <MainSection>
                
           
-          <Card id="top-card">
+          <Card id="top-card" style={{width:"80vw"}}>
           
           <h1 id="top-card-header">MQ3TM Cycle Overview</h1>
           <h2 id="top-card-subheader">Your journey through the MQ3TM cycle</h2>
@@ -33,20 +33,17 @@ export function Dashboard(){
           <li className="mq-list-option">Upcoming Works</li>
          </ul>
           </Card>
-          <div id="bottom-card-container">
-               <Card className="bottom-card">
           
-          <h1>HQ</h1>
-          <h1>AQ</h1>
-          <h1>MQ</h1>
+               <Card className="bottom-card bottom-card-left">
+
           </Card>  
-          <Card className="bottom-card">
+          <Card className="bottom-card bottom-card-right">
           
           <h1>HQ</h1>
           <h1>AQ</h1>
           <h1>MQ</h1>
           </Card>
-          </div>
+        
           
           
           </MainSection>
