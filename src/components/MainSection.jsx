@@ -3,7 +3,7 @@ import "../index.css";
 
 export default function MainSection({children}){
     return(<>
-    <div id="main-section">
+    <div className="main-section">
 {children}
     </div>
     

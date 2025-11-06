@@ -78,9 +78,10 @@ export function Login(){
     
     
     
+    
     </div>
-    <Button name="Login" onClick={onClick}></Button>
-    <a href=""className='tech-support-btn' id="text-support-link">Click for Technical Support</a>
+    <Button name="Login" onClick={onClick} icon={<img className="btn-icon logout-icon" src="src\assets\logout.png"/>}></Button>
+    <a href=""className='tech-support-btn' id="tech-support-link">Click for Technical Support</a>
     
     </form>
     </Form>
