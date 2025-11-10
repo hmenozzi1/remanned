@@ -255,8 +255,8 @@ gap:1vh;
 }
 
 .social-media-icon{
-  height:5vh;
-  width:5vw;
+  height:4vh;
+  width:4vw;
 
 }
 
@@ -482,6 +482,10 @@ padding:0.4vw;
  
 }
 
+.email-container{
+  margin-bottom:2vh;
+}
+
 .logout-icon{
   height:4.4vh;
   width:2.2vw;
@@ -598,7 +602,7 @@ gap:2vw;
 font-size:2vw;
  background-color: #1a1e23;
  
-
+margin-bottom:1vh;
 }
 
 .form-input{
@@ -607,6 +611,7 @@ width:38vw;
 background-color: #272c35;
 opacity: 0.6;
 border-radius:0.2vw;
+margin-bottom: 1vh;
 align-items: center;
 }
 
@@ -619,19 +624,28 @@ align-items: center;
 .input-container-2{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  
    background-color: #1a1e23;
  
-  gap:4vh;
+  gap:30vh;
+}
+
+.remember-me-container{
+   background-color: #1a1e23;
 }
 
 .form-input-2{/*checkbox*/
 height:4vh;
 width:4vw;
 }
+
+
 #remember-me-label{
   list-style-type: none;
   font-size:1.5vw;
  background-color: #1a1e23;
+ margin-top:0vh;
  
  
 }
@@ -639,7 +653,8 @@ width:4vw;
 .tech-support-btn{
    font-size:1.5vw;
     background-color: #1a1e23;
-    margin-bottom:2vh;
+    margin-bottom:1.7vh;
+    margin-top:0.8vh;
  
 }
 #tech-support-link{
@@ -680,9 +695,6 @@ width:4vw;
 
 
 
-  flex-direction: column;
-justify-content: center;
-text-align: center;
 
 
 
@@ -693,21 +705,30 @@ text-align: center;
   grid-area:top;
   display: flex;
   flex-direction: column;
-justify-content: center;
-text-align: center;
+
+  flex-direction: column;
+  justify-content: center;
+  background-color: #1a1e23;
+  text-align: center;
+  margin:auto;
 background-color: yellow;
+
 
 }
 
+
+
 #top-card-header{
 color:#937d55;
-font-size: 2vw;
+font-size: 2.6vw;
 background-color: #1a1e23;
 }
 
 #top-card-subheader{
 color:silver;
 background-color: #1a1e23;
+margin-top:1vh;
+font-size:1.1vw;
 }
 
 #mq-img{
@@ -717,12 +738,17 @@ background-color: #1a1e23;
   text-align: center;
   align-items: center;
   justify-content: center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:4vh;
+  margin-bottom:4vh;
 }
-#mq-list{
+.mq-container{
   text-align: center;
 
 align-items: center;  list-style-type: none;
 display: flex;
+justify-content: center;
 flex-direction: row;
 gap:5vh;
 background-color: #1a1e23;
@@ -730,14 +756,33 @@ opacity: 0.7;
 
 }
 
+.mq-item-container{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+    background-color: #1a1e23;
+}
+
 .mq-list-option{
 font-size:1vw;
+
+  background-color: #1a1e23;
+}
+
+.mq-icons{
+  height:4vh;
+  width:2vw;
+  margin-right:1vh;
+    background-color: #1a1e23;
 }
 
 .bottom-container{
   display: flex;
   flex-direction: row;
-  gap:4vh;
+  gap:1vh;
 }
 .bottom-card{
 
@@ -745,13 +790,64 @@ font-size:1vw;
 
 .bottom-card-header{
   background-color: #1a1e23;
+  font-size:1.6vw;
+  margin-top:2vh;
+  margin-left:2vh;
+}
+ .progress-bar-container{
+  margin-bottom:5vh;
+background-color: #1a1e23;
+ }
+.in-progress-bar-container{
+
+  display: flex;
+  flex-direction: column;
+  height:6vh;
+    background-color: #1a1e23;
+    margin-top:2vh;
+    margin-bottom:2vh;
 }
 
+.in-progress-bar-container-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #1a1e23;
+}
+
+.percentage-completion-text{
+  font-size: 1.1vw;
+  color:gray;
+   background-color: #1a1e23;
+   margin-right:2vh;
+}
+
+
+
+
+.completed-progress-bar-container{
+  background-color: #1a1e23;
+  margin-top:2vh;
+  margin-bottom:2vh;
+}
+
+.completed-progress-bar-container-2{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #1a1e23;
+  margin-top:2vh;
+
+}
 .bottom-card-subheader{
   background-color: #1a1e23;
+  font-size:1.1vw;
+  color:gray;
+    margin-left:2vh;
 }
 .bottom-card-left{
 grid-area:bottom-left;
+
 }
 
 .bottom-card-right{
@@ -760,16 +856,35 @@ grid-area:bottom-right;
 
 .completed-btn{
   height:5vh;
-  width:7vw;
+  width:8vw;
   background-color: #22ccb2;
   border-radius: 2vw;
   font-size: 1vw;
+   
+margin-right:2vh;
 }
 .completed-date{
 background-color: #1a1e23;
+color:gray;
+  font-size: 1vw;
+    margin-left:2vh;
+    margin-bottom:1vh;
+}
+
+
+.in-progress-bar{
+  width:10vw;
+  height:1vh;
+  border:0.2vw solid green;
+}
+.in-progress-bar{
+  width:10vw;
+  height:1vh;
+  border:0.2vw solid green;
 }
 .phase-description{
 background-color: #1a1e23;
+margin-left:2vh;
 }
 
 /*Main Section Component Ends*/

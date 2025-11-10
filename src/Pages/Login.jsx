@@ -66,8 +66,11 @@ export function Login(){
     </div>
       <div className="input-container-2">
     
-   <input type="checkbox" className="form-input-2"/>
+    <div class="remember-me-container">
+ <input type="checkbox" className="form-input-2"/>
     <label id="remember-me-label">Remember Me</label>
+    </div>
+  
    
 
     
@@ -80,7 +83,7 @@ export function Login(){
     
     
     </div>
-    <Button name="Login" onClick={onClick} icon={<img className="btn-icon logout-icon" src="src\assets\logout.png"/>}></Button>
+    <Button name="Login" onClick={onClick} icon={<img className="btn-icon logout-icon" src="src\assets\door-leave-icon.png"/>}></Button>
     <a href=""className='tech-support-btn' id="tech-support-link">Click for Technical Support</a>
     
     </form>
