@@ -23,8 +23,8 @@ navigate("/Login.jsx");
          
        <h1 id="welcome-page-header">Welcome Back</h1>
         <ul id="header-list-1" className="header-list">
-            <li className="header-list-items">Conscious</li>
-            <li className="header-list-items">Subconscious</li>
+            <li className="header-list-items top-list-item">Conscious</li>
+            <li className="header-list-items top-list-item">Subconscious</li>
           
         </ul>
 
@@ -34,12 +34,12 @@ navigate("/Login.jsx");
        
             <li className="header-list-items" href="SignUp.jsx">Responsibility</li>
             <li className="header-list-items">Ethicality</li>
-            <li className="header-list-items">Mastery</li>
+            <li className="header-list-items mastery-item">Mastery</li>
             <li className="header-list-items">Adaptability</li>
             <li className="header-list-items">Nobility</li>
         </ul>
 
-        <Button name="Click to Continue" id="welcome-page-btn" onClick={onClick}></Button>
+        <Button name="Click to Continue" id="welcome-page-btn" onClick={onClick} style={{  marginTop:"4.5vh",marginBottom:"4.5vh"}}></Button>
       <img src="src\assets\-.png" id='venn-diagram-img' alt="" />
      </div>
     

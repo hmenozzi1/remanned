@@ -13,9 +13,12 @@ function Navbar(){
     <Link to="/SignUp.jsx" className="nav-items">SignUp</Link>
     <Link to="/Login.jsx" className="nav-items">Login</Link>
       <Link to="/Dashboard.jsx" className="nav-items">Dashboard</Link>
+          <Link to="/Journal.jsx" className="nav-items">Journal</Link>
       <Link to="/Goals.jsx" className="nav-items">Goals</Link>
       <Link to="/Progress.jsx" className="nav-items">Progress</Link>
-    <Link to="/Journal.jsx" className="nav-items">Journal</Link>
+
+    <Link to="/Settings.jsx" className="nav-items">Settings</Link>
+    <Link to="/AdminDashboard.jsx" className="nav-items">Admin Dashboard</Link>
     
     
     

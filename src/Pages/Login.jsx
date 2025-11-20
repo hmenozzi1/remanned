@@ -30,12 +30,18 @@ export function Login(){
     
 
     <a href="" className="user-admin-text">User Login</a>
-<label htmlFor="" className="toggle-switch">
-  <input type="checkbox" name="" id="user-toggle" />
-  <span className="slider"></span>
-  <span id="user-toggle-icon">user</span>
-  <span id="admin-toggle-icon">admin</span>
+
+
+
+
+
+<label class="switch">
+  <input type="checkbox" checked/>
+  <span class="slider round"></span>
 </label>
+
+
+
     <a href="" className="user-admin-text">Admin Login</a>
    
 

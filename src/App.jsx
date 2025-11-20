@@ -14,6 +14,8 @@ import {Layout} from './Pages/Layout.jsx';
 import { Goals } from './Pages/Goals.jsx';
 import { Progress } from './Pages/Progress.jsx';
 import {SplashScreen} from './Pages/SplashScreen.jsx';
+import {Settings} from './Pages/Settings.jsx';
+import { AdminDashboard } from './Pages/AdminDashboard.jsx';
 
 
 function App (){
@@ -33,6 +35,8 @@ function App (){
     <Route path="/Goals.jsx" element={<Goals/>}/>
     <Route path="/Progress.jsx" element={<Progress/>}/>
     <Route path="/Notification.jsx" element={<Notification/>}/>
+    <Route path="/Settings.jsx" element={<Settings/>}/>
+    <Route path="/AdminDashboard.jsx" element={<AdminDashboard/>}/>
     
     </Route>
     </Routes>

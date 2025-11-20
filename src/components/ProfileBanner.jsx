@@ -9,7 +9,7 @@ export default function ProfileBanner({children}){
     <div id="profile-banner">
         <div id="banner-section-1">
              <img  id="banner-logo" src="src\assets\Screenshot 2025-11-02 055107.png" alt="" />
-    <h1 id= "profile-banner-header">MQ&trade;Hub</h1> 
+    <h1 id= "profile-banner-header">MQ&trade; Hub</h1> 
         </div>
         <div id="banner-section-2">
               <img src="src\assets\Icon-round-Question_mark.svg.png" alt="" id="banner-icon" />
