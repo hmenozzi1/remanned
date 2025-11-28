@@ -21,74 +21,78 @@ export function Journal(){
               <MainSection>
                         
                         
-                        <Card className="top-card" style={{width:"80vw",height:"63vh", display:"flex", justifyContent:"center", textAlign:"center", margin:"auto", flexDirection:"column", marginTop:"2vh", marginBottom:"1vh"}} >
+                        <Card className="journal-card" style={{width:"75vw",height:"150vh", borderRadius:"1vw", display:"flex", justifyContent:"center", textAlign:"center", margin:"auto", flexDirection:"column", marginTop:"3vh", marginBottom:"1vh", marginLeft:"0"}} >
                         
-                        <h1 id="top-card-header">MQ3TM Cycle Overview</h1>
+                        <h1 className="journal-card-header">Daily Reflection Journal</h1>
                      
-                        <h2 id="top-card-subheader">Your journey through the MQ3TM cycle</h2>
-                        <img src="src\assets\Screenshot 2025-11-03 144303.png" id="mq-img" alt="" />
-                      <div className="mq-container">
-                        <div className="mq-item-container"><img src="src\assets\new-moon (1).png" className='mq-icons' alt="" />
-                              <p className="mq-list-option">Completed Works</p> 
-                        </div>
-                           <div className="mq-item-container"><img src="src\assets\red-flag.png"className='mq-icons' alt="" />
-                              <p className="mq-list-option">Checkpoints</p>
-                        </div>
-                           <div className="mq-item-container"><img src="src\assets\new-moon.png"className='mq-icons' alt="" />
-                              <p className="mq-list-option">Upcoming Works</p>
-                        </div>
-              
+                        <h2 className="journal-card-subheader">Capture your thoughts and insights with guided prompts and AQ-related reflections.</h2>
                        
-                      </div>
+                
+
+                   <div className="reflection-features-toggle-container">
+                     < label class="switch">
+                     <input type="checkbox" checked/>
+  <span class="slider round"></span>
+</label>
+   <p className="reflection-features-text">Enable enhanced reflections features</p>
+                   </div>
+
+                   
+
+
+
+   <div className="journal-section-container">
+      <h1 className='journal-section-header'>Lessons learned today</h1>
+   <div className="journal-entry-container">
+<input type="text" className="journal-entry-input" placeholder="Reflect on key takeaways and new insights from your day..."/>
+   </div>
+      <p className="character-count-text">0/500 characters</p>
+
+   </div>
+   <div className="journal-section-container">
+      <h1 className='journal-section-header'>Areas I can improve on.</h1>
+   <div className="journal-entry-container">
+<input type="text" className="journal-entry-input" placeholder="Reflect on key takeaways and new insights from your day..."/>
+   </div>
+      <p className="character-count-text">0/500 characters</p>
+
+   </div>
+   <div className="journal-section-container">
+      <h1 className='journal-section-header'>What will I do differently from today going forward?</h1>
+   <div className="journal-entry-container">
+<input type="text" className="journal-entry-input" placeholder="Reflect on key takeaways and new insights from your day..."/>
+   </div>
+      <p className="character-count-text">0/500 characters</p>
+
+   </div>
+   <div className="journal-section-container">
+      <h1 className='journal-section-header'>AQ Reflection: Resilience and Adaptation</h1>
+   <div className="journal-entry-container">
+<input type="text" className="journal-entry-input" placeholder="Reflect on key takeaways and new insights from your day..."/>
+   </div>
+      <p className="character-count-text">0/750 characters</p>
+
+   </div>
+   <div className="journal-section-container">
+      <h1 className='journal-section-header'>AQ Reflection: Leveraging Strengths</h1>
+   <div className="journal-entry-container">
+<input type="text" className="journal-entry-input" placeholder="Reflect on key takeaways and new insights from your day..."/>
+   </div>
+      <p className="character-count-text">0/750 characters</p>
+
+   </div>
+   <p className="journal-footer-text">Your reflections are private and saved automatically. </p>
+                       
+                       
+                       
+                       
+                      
+                   
               
                      
                         
                                   </Card>
-                        <div className="bottom-container">
-              <Card className="bottom-card-left" style={{height:"34vh", marginLeft:"1vh", width:"40vw", gap:"2vh"}}>
-                         <h1 className='bottom-card-header'>SQ Completion</h1>
-                         <div className="in-progress-bar-container">
-                             <div className="progess-bar-container in-progress-bar-container-2">
-                <h1 className="bottom-card-subheader">Phase 1</h1>
-                        <button className='completed-btn'>Completed</button>
-                             </div>
-              
-                        <h1 className='completed-date'>Completed on July 16 2024</h1>
-                          <div className="progress-bar"></div>
-                         </div>
                       
-                        <p  className='phase-description'>Phase I, focusing on self-awareness and inner peace, has been successfully completed. Great progress!</p>
-                        </Card>  
-                        <Card className="bottom-card-right" style={{height:"34vh", width:"40vw" , gap:"2vh"}}>
-                         <h1 className='bottom-card-header'>AQ Progress</h1>
-                   
-              
-               
-                         <div className="progess-bar-container completed-progress-bar-container">
-                             <div className="completed-progress-bar-container-2">
-                <h1 className="bottom-card-subheader">Phase 2</h1>
-                       <p className="percentage-completion-text">70% Complete</p>
-                             </div>
-              
-                  
-                          <div className="progress-bar"></div>
-                         </div>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-                        <p className='phase-description'>Phase II, enhancing your ability to thrive in changing environments, is
-              currently 70% complete. Keep going!</p>
-                        </Card>
-                        
-                        </div>
                         
                         
                         

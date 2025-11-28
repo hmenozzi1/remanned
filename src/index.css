@@ -779,11 +779,12 @@ margin-top:2.5vh;
 margin-bottom:1vh;
 }
 
-#top-card-subheader{
+.top-card-subheader{
 color:silver;
 background-color: #1a1e23;
 margin-top:1vh;
 font-size:1.1vw;
+margin-bottom:3vh;
 }
 
 #mq-img{
@@ -796,8 +797,8 @@ font-size:1.1vw;
   margin-left:auto;
   
   margin-right:auto;
-  margin-top:3vh;
-  margin-bottom:4vh;
+  margin-top:2vh;
+  margin-bottom:3vh;
 }
 .mq-container{
   text-align: center;
@@ -1050,16 +1051,16 @@ list-style-type: none;
 
 .contact-support-container{
 background-color: gray;
-width:60vw;
+width:79.6vw;
 height:8vh;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
 display: flex;
-margin-top:1vh;
+margin-top:2vh;
 align-items: center;
-border-radius:.5vw;
-margin-left:4vw;
+border-radius:.2vw;
+margin-left:.5vw;
 }
 
 .contact-support-text{
@@ -1076,7 +1077,7 @@ width:8vw;
 border-radius:5%;
 color:white;
 background-color: #182434;
-margin-right:6vw;
+margin-right:2vw;
 border:0.2vw solid black;
 font-weight:bold;
 }
@@ -1101,7 +1102,135 @@ background-color: #1a1e23;
 
 /*Goals Page End*/
 
-/*Progress Page*/
+
+
+/*Journal Page*/
+
+.journal-card{
+
+}
+.reflection-features-toggle-container{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  background-color: #1a1e23;
+ margin-top:1vh;
+ margin-bottom:1vw;
+ gap:1vw;
+}
+
+.reflection-features-text{
+  background-color: #1a1e23;
+  margin-top:1vh;
+  margin-bottom:1vh;
+}
+.journal-card-header{
+  background-color: #1a1e23;
+  margin-bottom:2vh;
+  
+}
+
+.journal-card-subheader{
+  color:gray;
+  font-size:1vw;
+    background-color: #1a1e23;
+    margin-bottom:2vh;
+}
+
+
+.journal-section-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+flex-direction: column;
+width:70vw;
+  background-color: #1a1e23;
+  margin-bottom:3vh;
+}
+.journal-section-header{
+color:white;
+font-size:1.4vw;
+  background-color: #1a1e23;
+  margin-bottom:0.5vh;
+}
+
+.journal-entry-container{
+  background-color: rgb(10, 13, 21);
+  color:white;
+  width:45vw;
+  height:14vh;
+  border:0.2vw solid white;
+}
+
+.journal-entry-input{
+color:white;
+width:100%;
+height:100%;
+
+}
+
+.journal-entry-input::placeholder{
+  justify-content: top;
+  float:top;
+}
+
+.character-count-text{
+    background-color: #1a1e23;
+    margin-top:0.4vh;
+}
+.journal-footer-text{
+    background-color: #1a1e23;
+}
+
+
+
+/*Journal Page End*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*History Page*/
+
+.history-banner{
+  display:flex;
+  flex-direction: row;
+  margin-top:1vh;
+  border:0.1vw solid white;
+  width:80vw;
+  justify-content: space-between;
+  align-items: center;
+}
+.history-banner-container{
+display: flex;
+flex-direction: row;
+}
+
+.history-banner-header{
+
+}
+
+.history-banner-btn{
+  background-color: 
+#379ae6;
+  color:white;
+  height:5.6vh;
+  width:9vw;
+  margin-right:4vw;
+  font-weight:bold;
+  border-radius:0.2vw;
+}
 .history-layout{
   display: grid;
   grid-template-areas:none
@@ -1112,28 +1241,103 @@ background-color: #1a1e23;
   flex-direction:row;
 }
 
+.history-top-header{
+  color:white;
+  background-color: #1a1e23;
+   margin-top:6vh;
+}
+
+.history-top-subheader{
+
+  margin-top:2vh;
+margin-bottom:4.5fvh;
+  background-color: #1a1e23;
+  font-size:1.2vw;
+  color:gray;
+}
+.history-graph{
+  height:29vh;
+  width:23vw;
+  justify-content: center;
+}
 .history-bottom-container{
   display: flex;
   flex-direction:column;
 }
 
-
+.history-bottom-header-container{
+  display: flex;
+  flex-direction: row;
+  background-color: #1a1e23;
+  margin-left:4vw;
+  margin-top:5vh;
+}
 .history-bottom-header{
-  color:gold;
+  color:#9d8559;;
+  background-color: #1a1e23;
 }
 .history-bottom-subheader{
   color:gray;
+   background-color: #1a1e23;
+   margin-bottom:3vh;
+   margin-top:2.6vh;
+   justify-content: left;
 }
+.cycle-history-table{
+  height:60vh;
+}
+table tr td{
+  color:white;
+ background-color: #1a1e23;
+ margin-top:3vh;
+ font-size:2vw;
+}
+
+.cycle-row-header{
+ background-color: #1a1e23;
+ font-size:1.2vw;
+ color:gray;
+}
+.cycle-name-row-item{
+  color:white;
+  font-size:1.2vw;
+}
+.completion-date-row-item{
+ background-color: #1a1e23;
+ font-size:1.2vw;
+ color:gray;
+}
+
+.mastery-level-row-item{
+font-size:1.2vw;
+color:white;
+}
+tr{
+   background-color: #1a1e23;
+}
+
+
+
 
 .domain-goals-container{
   display: flex;
   flex-direction: row;
-  width:50vw;
+  justify-content: space-between;
+  width:70vw;
+   background-color: #1a1e23;
+   margin-left:2vw;
+   gap:4vw;
+   margin-top:2vh;
 }
 
 
 .domain-icon{
-
+height:5vh;
+width:4vw;
+justify-content: center;
+display: flex;
+align-items: center;
+text-align: center;
 }
 
 .domain-category{
@@ -1141,21 +1345,49 @@ background-color: #1a1e23;
 }
 
 .domain-score{
-
+color:gray;
+font-size:1.5vw;
 }
 
 .domain-percentage{
-
+font-weight:1vw;
 }
 
 .domain-btn{
   color:white;
-   background-color:red;
-   height:1vh;
-   width:3vw;
+    background-color: #c31818;
+
+   height:5vh;
+   width:7vw;
+   border-radius:.7vw;
+   font-weight: bolder;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
 }
 
+.history-top-domain-btn{
+  margin-top:2vh;
+  width:9vw;
+  font-size:.9vw;
+}
 
+.completion-rate{
+color:white;
+font-weight:bold;
+font-size:1.5vw;
+  background-color: #1a1e23;
+  margin-bottom:2vh;
+  margin-top:5vh;
+}
+
+.key-achievements-header{
+  font-weight:bold;
+  color:white;
+  font-size:1.3vw;
+  background-color: #1a1e23;
+}
 
 
 

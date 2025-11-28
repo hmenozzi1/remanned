@@ -29,7 +29,7 @@ export function Goals(){
                
                <h1 id="top-card-header">MQ3TM Cycle Overview</h1>
                
-               <h2 id="top-card-subheader">Your journey through the MQ3TM cycle</h2>
+               <h2 className="top-card-subheader">Your journey through the MQ3TM cycle</h2>
                <img src="src\assets\Screenshot 2025-11-19 112150.png" id="mq-img" alt="" />
                <div className="mq-container">
                <div className="mq-item-container"><img src="src\assets\new-moon (1).png" className='mq-icons' alt="" />

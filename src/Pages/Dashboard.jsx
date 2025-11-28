@@ -26,7 +26,7 @@ export function Dashboard(){
             
             <h1 id="top-card-header">MQ3TM Cycle Overview</h1>
             
-            <h2 id="top-card-subheader">Your journey through the MQ3TM cycle</h2>
+            <h2 className="top-card-subheader">Your journey through the MQ3TM cycle</h2>
             <img src="src\assets\Screenshot 2025-11-19 112150.png" id="mq-img" alt="" />
             <div className="mq-container">
             <div className="mq-item-container"><img src="src\assets\new-moon (1).png" className='mq-icons' alt="" />
@@ -46,7 +46,7 @@ export function Dashboard(){
             
             </Card>
             <div className="bottom-container">
-            <Card className="bottom-card-left" style={{height:"35vh", marginLeft:"1vh",  width:"80vw", gap:"2vh"}}>
+            <Card className="bottom-card-left" style={{height:"35vh", marginLeft:"1vh",  width:"40vw", gap:"2vh"}}>
             <h1 className='card-header'>SQ Completion</h1>
         
             <div className="progess-bar-container completed-progress-bar-container">
@@ -61,7 +61,7 @@ export function Dashboard(){
 
 
 
-            <Card className="bottom-card-right" style={{height:"35vh", width:"80vw" , gap:"2vh"}}>
+            <Card className="bottom-card-right" style={{height:"35vh", width:"40vw" , gap:"2vh"}}>
             <h1 className='card-header'>AQ Progress</h1>
             
             
