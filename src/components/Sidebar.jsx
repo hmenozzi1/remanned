@@ -10,7 +10,7 @@ export default function Sidebar({children, style}){
 
       <Link to="/Journal.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images (1).png" className="sidebar-icon"/>Journal</li></Link>
        <Link to="/Goals.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"><img src="src\assets\white-strategy-icon-33.png" className="sidebar-icon"/>Goals</li></Link>
-      <Link to="/Progress.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images.png" className="sidebar-icon"/>Progress</li></Link>
+      <Link to="/History.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images.png" className="sidebar-icon"/>History</li></Link>
       <Link to="/Settings.jsx" className="sidebar-nav-link"><li className="sidebar-nav-item"> <img src="src\assets\images (1).png" className="sidebar-icon"/>Settings</li></Link>
      
       </ul>

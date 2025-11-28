@@ -12,7 +12,7 @@ import {WelcomePage} from './Pages/WelcomePage.jsx';
 import {SignUp} from './Pages/SignUp.jsx';
 import {Layout} from './Pages/Layout.jsx';
 import { Goals } from './Pages/Goals.jsx';
-import { Progress } from './Pages/Progress.jsx';
+import { History } from './Pages/History.jsx';
 import {SplashScreen} from './Pages/SplashScreen.jsx';
 import {Settings} from './Pages/Settings.jsx';
 import { AdminDashboard } from './Pages/AdminDashboard.jsx';
@@ -33,7 +33,7 @@ function App (){
     
     <Route path="/Journal.jsx" element={<Journal/>}/>
     <Route path="/Goals.jsx" element={<Goals/>}/>
-    <Route path="/Progress.jsx" element={<Progress/>}/>
+    <Route path="/History.jsx" element={<History/>}/>
     <Route path="/Notification.jsx" element={<Notification/>}/>
     <Route path="/Settings.jsx" element={<Settings/>}/>
     <Route path="/AdminDashboard.jsx" element={<AdminDashboard/>}/>

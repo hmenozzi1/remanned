@@ -751,6 +751,7 @@ width:4vw;
 
 /*Main Section Component*/
 .main-section{
+
 }
 
 .top-card{
@@ -838,7 +839,7 @@ font-size:1vw;
   display: flex;
   flex-direction: row;
   gap:1vh;
-  margin-top:84vh;
+  margin-top:1vh;
 }
 
 .card-header{
@@ -847,11 +848,13 @@ font-size:1vw;
   margin-top:2vh;
   margin-left:2vh;
   font-weight: bolder;
+
 }
 
 .card-subheader{
   font-size:1vw;
   color:gray;
+    background-color: #1a1e23;
 }
  .progress-bar-container{
   margin-bottom:5vh;
@@ -930,11 +933,13 @@ color:gray;
 }
 .bottom-card-left{
 grid-area:bottom-left;
+background-color: #1a1e23;
 
 }
 
 .bottom-card-right{
 grid-area:bottom-right;
+background-color: #1a1e23;
 }
 
 
@@ -945,6 +950,7 @@ grid-area:bottom-right;
 background-color: #1a1e23;
 margin-left:2vh;
 }
+
 
 /*Main Section Component Ends*/
 
@@ -1039,3 +1045,138 @@ list-style-type: none;
 
 
 /*Pages End*/
+
+/*Goals Page*/
+
+.contact-support-container{
+background-color: gray;
+width:60vw;
+height:8vh;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+display: flex;
+margin-top:1vh;
+align-items: center;
+border-radius:.5vw;
+margin-left:4vw;
+}
+
+.contact-support-text{
+color:white;
+background-color: gray;
+font-weight:2vw;
+margin-left:2vw;
+font-size:1.5vw;
+}
+
+.contact-support-btn{
+height:5vh;
+width:8vw;
+border-radius:5%;
+color:white;
+background-color: #182434;
+margin-right:6vw;
+border:0.2vw solid black;
+font-weight:bold;
+}
+
+
+.goals-list{
+background-color: #1a1e23;
+margin-left:3vw;
+margin-top:3vh;
+}
+
+.goal-item{
+  color:gray;
+  font-size:1vw;
+background-color: #1a1e23;
+
+}
+
+.goals-sq-container{
+  margin-bottom:3vh;
+}
+
+/*Goals Page End*/
+
+/*Progress Page*/
+.history-layout{
+  display: grid;
+  grid-template-areas:none
+}
+
+.history-top-container{
+  display: flex;
+  flex-direction:row;
+}
+
+.history-bottom-container{
+  display: flex;
+  flex-direction:column;
+}
+
+
+.history-bottom-header{
+  color:gold;
+}
+.history-bottom-subheader{
+  color:gray;
+}
+
+.domain-goals-container{
+  display: flex;
+  flex-direction: row;
+  width:50vw;
+}
+
+
+.domain-icon{
+
+}
+
+.domain-category{
+
+}
+
+.domain-score{
+
+}
+
+.domain-percentage{
+
+}
+
+.domain-btn{
+  color:white;
+   background-color:red;
+   height:1vh;
+   width:3vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Progress Page End*/

@@ -19,7 +19,7 @@ export function Dashboard(){
             
             
             
-            <MainSection style={{display:"grid",   gridTemplateAreas:'"top top " "bottom-left bottom-left bottom-right bottom-right"',gridArea:"main", gridTemplateRows:"66vh", flexGrow:"1"}}>
+            <MainSection style={{display:"grid",  height:"40vh", gridTemplateAreas:'"top top " "bottom-left bottom-left bottom-right bottom-right"',gridArea:"main", gridTemplateRows:"60vh", flexGrow:"1"}}>
             
             
             <Card className="top-card" style={{width:"80vw",height:"63vh", display:"flex", textAlign:"center", margin:"auto", gridArea:"top", flexDirection:"column", marginTop:"2vh", marginBottom:"1vh"}} >
@@ -46,7 +46,7 @@ export function Dashboard(){
             
             </Card>
             <div className="bottom-container">
-            <Card className="bottom-card-left" style={{height:"35vh", marginLeft:"1vh",  width:"40vw", gap:"2vh"}}>
+            <Card className="bottom-card-left" style={{height:"35vh", marginLeft:"1vh",  width:"80vw", gap:"2vh"}}>
             <h1 className='card-header'>SQ Completion</h1>
         
             <div className="progess-bar-container completed-progress-bar-container">
@@ -61,7 +61,7 @@ export function Dashboard(){
 
 
 
-            <Card className="bottom-card-right" style={{height:"35vh", width:"40vw" , gap:"2vh"}}>
+            <Card className="bottom-card-right" style={{height:"35vh", width:"80vw" , gap:"2vh"}}>
             <h1 className='card-header'>AQ Progress</h1>
             
             
