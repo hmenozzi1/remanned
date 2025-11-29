@@ -1167,6 +1167,9 @@ font-size:1.4vw;
 color:white;
 width:100%;
 height:100%;
+display: flex;
+flex-direction: column;
+
 
 }
 
@@ -1179,10 +1182,25 @@ height:100%;
     background-color: #1a1e23;
     margin-top:0.4vh;
 }
+.journal-footer-container{
+ background-color: #1a1e23;
+ display: flex;
+ flex-direction: row;
+ gap:5vw;
+ align-items: center;
+}
 .journal-footer-text{
     background-color: #1a1e23;
 }
 
+.journal-btn{
+  background-color:#2196F3;
+  color:white;
+  height:6vh;
+  width:9vw;
+  border:0.3vw solid black;
+  border-radius:.6vw;
+}
 
 
 /*Journal Page End*/
@@ -1412,3 +1430,99 @@ font-size:1.5vw;
 
 
 /*Progress Page End*/
+
+
+/*Admin Pages*/
+/*Admin Goals Page*/
+
+.admin-mq-img{
+   background-color: #1a1e23;
+    height:35vh;
+  width: 20vw;;
+   display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin-left:auto;
+  
+  margin-right:auto;
+  margin-top:2vh;
+  margin-bottom:3vh;
+}
+.mq-item-container{
+  border-radius:1.6vw;
+  height:5vh;
+  width:10vw;
+
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+
+}
+.admin-mq-item-container{
+  display: flex;
+  flex-direction: row;
+  border-radius:1vw;
+}
+
+.admin-mq-list-option{
+
+}
+
+
+.completed-works-item{
+
+  background-color:green;
+}
+.checkpoints-item{
+background-color: red;
+}
+
+.upcoming-works-item{
+background-color: #182434;
+
+}
+
+
+
+.admin-completed-progress-bar-container{
+  display: flex;
+flex-direction: row;
+background-color: #1a1e23;
+
+align-items: center;
+text-align: center;
+justify-content: space-between;
+margin-top:3vh;
+margin-bottom:4vh;
+}
+
+.admin-in-progress-bar-container{
+display: flex;
+flex-direction: row;
+background-color: #1a1e23;
+justify-content: space-between;
+align-items: center;
+text-align: center;
+justify-content: space-between;
+margin-top:3vh;
+margin-bottom:3vh;
+}
+.admin-goals-header{
+  font-size:1vw;
+color:white;
+background-color: #1a1e23;
+margin-left:2vw;
+}
+
+.admin-goals-text{
+ color:gray;
+ font-size:1vw; 
+ background-color: #1a1e23;
+ margin-left:2vw;
+}
+/*Admin Goals Page*/
+
+
+/*End of Admin Pages*/

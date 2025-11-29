@@ -21,7 +21,7 @@ export function Journal(){
               <MainSection>
                         
                         
-                        <Card className="journal-card" style={{width:"75vw",height:"150vh", borderRadius:"1vw", display:"flex", justifyContent:"center", textAlign:"center", margin:"auto", flexDirection:"column", marginTop:"3vh", marginBottom:"1vh", marginLeft:"0"}} >
+                        <Card className="journal-card" style={{width:"75vw",height:"150vh", borderRadius:"1vw", display:"flex", justifyContent:"center", textAlign:"center",alignItems:"center", margin:"auto", flexDirection:"column", marginTop:"3vh", marginBottom:"1vh", marginLeft:"0"}} >
                         
                         <h1 className="journal-card-header">Daily Reflection Journal</h1>
                      
@@ -81,8 +81,12 @@ export function Journal(){
       <p className="character-count-text">0/750 characters</p>
 
    </div>
-   <p className="journal-footer-text">Your reflections are private and saved automatically. </p>
-                       
+
+   <div className="journal-footer-container">
+<p className="journal-footer-text">Your reflections are private and saved automatically. </p>
+                       <button className="journal-btn">Submit</button>
+   </div>
+   
                        
                        
                        

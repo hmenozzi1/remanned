@@ -19,6 +19,7 @@ function Navbar(){
 
     <Link to="/Settings.jsx" className="nav-items">Settings</Link>
     <Link to="/AdminDashboard.jsx" className="nav-items">Admin Dashboard</Link>
+    <Link to="/AdminGoals.jsx" className="nav-items">Admin Goals</Link>
     
     
     
