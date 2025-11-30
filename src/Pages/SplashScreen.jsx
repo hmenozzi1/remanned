@@ -1,5 +1,5 @@
 
-import '../index.css';
+import "../index.css";
 import {Link} from "react-router-dom";
 import Footer from "../components/Footer.jsx";
 import Body from "../components/Body.jsx";

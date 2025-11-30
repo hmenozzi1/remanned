@@ -1,54 +1,94 @@
-
-import '../index.css';
-import {Link} from "react-router-dom";
+// src/Pages/WelcomePage.jsx
+import "../index.css";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
-import Body from "../components/Body.jsx";
 
-import Button from "../components/Button.jsx";
-import { useNavigate } from 'react-router-dom';
+import logo from "../assets/logo.png";
+import SpiritualArc from "../components/SpiritualArc.jsx";
 
-export function WelcomePage(){
+export function WelcomePage() {
+  const navigate = useNavigate();
 
-  const navigate=useNavigate();
+  const handleClickContinue = () => {
+    navigate("/login"); // go to login screen route
+  };
 
-      const onClick=()=>{
-navigate("/Login.jsx");
-  }
-    return(
-        <>
-        
-      <Body>
-     <div id="welcome-page-container">
-<img src="src\assets\Screenshot 2025-10-30 150421.png" className="remanned-banner" alt="" />
-         
-       <h1 id="welcome-page-header">Welcome Back</h1>
-        <ul id="header-list-1" className="header-list">
-            <li className="header-list-items top-list-item">Conscious</li>
-            <li className="header-list-items top-list-item">Subconscious</li>
-          
-        </ul>
+  return (
+    <div
+      className="welcome-page-wrapper"
+      style={{
+        backgroundColor: "#000",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Top bar with logo */}
+      <header
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "0.5rem 1rem",
+          backgroundColor: "#000",
+        }}
+      >
+        <img src={logo} alt="Remanned Logo" style={{ height: "32px" }} />
+      </header>
 
-       <img src="src\assets\Screenshot 2025-10-30 145401.png" id="remanned-arc" alt="" />
-      
-        <ul id="header-list-2" className="header-list">
-       
-            <li className="header-list-items" href="SignUp.jsx">Responsibility</li>
-            <li className="header-list-items">Ethicality</li>
-            <li className="header-list-items mastery-item">Mastery</li>
-            <li className="header-list-items">Adaptability</li>
-            <li className="header-list-items">Nobility</li>
-        </ul>
+      {/* Main hero content */}
+      <main
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "1rem 2rem",
+          textAlign: "center",
+        }}
+      >
+        {/* Welcome Back */}
+        <h1
+          style={{
+            color: "#9e865a",
+            fontSize: "2.2rem",
+            fontStyle: "italic",
+            fontWeight: 300,
+            margin: "0.25rem 0 1.5rem 0",
+            letterSpacing: "0.15em",
+            textTransform: "uppercase",
+          }}
+        >
+          Welcome Back
+        </h1>
 
-        <Button name="Click to Continue" id="welcome-page-btn" onClick={onClick} style={{  marginTop:"4.5vh",marginBottom:"4.5vh"}}></Button>
-      <img src="src\assets\-.png" id='venn-diagram-img' alt="" />
-     </div>
-    
-        
-            </Body>
+        {/* Arc + labels + Venn rendered via component */}
+        <SpiritualArc />
 
-            <Footer></Footer>
-    
-       
-        </>
-    );
+        {/* Click to Continue button */}
+        <button
+          id="welcome-page-btn"
+          onClick={handleClickContinue}
+          style={{
+            marginTop: "1.5rem",
+            marginBottom: "2rem",
+            padding: "0.75rem 4rem",
+            border: "none",
+            borderRadius: "3px",
+            backgroundColor: "#9e865a",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "0.9rem",
+            cursor: "pointer",
+            width: "50%",
+            maxWidth: "400px",
+          }}
+        >
+          Click to Continue
+        </button>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }

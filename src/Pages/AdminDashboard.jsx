@@ -1,12 +1,13 @@
-import '../index.css';
-import Footer from "./components/Footer.jsx";
-import Body from "./components/Body.jsx";
-import Card from "./components/Card.jsx";
-import ProfileBanner from './components/ProfileBanner.jsx';
-import Sidebar from './components/SideBar.jsx';
-import MainSection from "./components/MainSection.jsx";
-import Button from "./components/Button.jsx";
+import "../index.css";
+import Footer from "../components/Footer.jsx";
+import Body from "../components/Body.jsx";
+import Card from "../components/Card.jsx";
+import ProfileBanner from "../components/ProfileBanner.jsx";
+import Sidebar from "../components/Sidebar.jsx";  // note: Sidebar, not SideBar
+import MainSection from "../components/MainSection.jsx";
+import Button from "../components/Button.jsx";
 import { useNavigate } from "react-router-dom";
+
 
 export function AdminDashboard() {
   const navigate = useNavigate();

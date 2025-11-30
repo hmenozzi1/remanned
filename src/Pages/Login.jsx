@@ -1,4 +1,4 @@
-import '../index.css';
+import "../index.css";
 import Footer from "../components/Footer.jsx";
 import Body from "../components/Body.jsx";
 import Button from "../components/Button.jsx";

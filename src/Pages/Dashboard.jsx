@@ -1,13 +1,13 @@
-import '../index.css';
+import "../index.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Footer from "./components/Footer.jsx";
-import Body from "./components/Body.jsx";
-import Card from "./components/Card.jsx";
-import ProfileBanner from "./components/ProfileBanner.jsx";
-import Sidebar from "./components/SideBar.jsx";
-import MainSection from "./components/MainSection.jsx";
+import Footer from "../components/Footer.jsx";
+import Body from "../components/Body.jsx";
+import Card from "../components/Card.jsx";
+import ProfileBanner from "../components/ProfileBanner.jsx";
+import Sidebar from "../components/SideBar.jsx";
+import MainSection from "../components/MainSection.jsx";
 import { fetchDashboardData } from "../api/dashboardApi.js";
 
 export function Dashboard() {
