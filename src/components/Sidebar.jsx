@@ -1,4 +1,5 @@
-import "./index.css";
+// src/components/Sidebar.jsx
+import "../index.css";
 import Button from "./Button.jsx";
 import { Link, useNavigate } from "react-router-dom";
 
