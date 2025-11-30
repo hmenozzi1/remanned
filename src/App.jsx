@@ -1,49 +1,40 @@
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
-import Header from './components/Navbar.jsx';
-import Footer from './components/Footer.jsx';
-import Body from './components/Body.jsx';
+import { Dashboard } from "./Pages/Dashboard.jsx";
+import { Journal } from "./Pages/Journal.jsx";
+import { Login } from "./Pages/Login.jsx";
+import { WelcomePage } from "./Pages/WelcomePage.jsx";
+import { SignUp } from "./Pages/SignUp.jsx";
+import { Layout } from "./Pages/Layout.jsx";
+import { Goals } from "./Pages/Goals.jsx";
+import { History } from "./Pages/History.jsx";
+import { SplashScreen } from "./Pages/SplashScreen.jsx";
+import { Settings } from "./Pages/Settings.jsx";
+import { AdminDashboard } from "./Pages/AdminDashboard.jsx";
+import { AdminGoals } from "./Pages/AdminGoals.jsx";
 
-import {HashRouter as Router, Routes, Route} from 'react-router-dom';//libraries from react can be used as components
-//Hashrouter-creates routing environment wraps around App.jsx, Routes-specicy all potential routes Route -each individual route
-import {Dashboard} from './Pages/Dashboard.jsx';
-import {Journal} from './Pages/Journal.jsx';
-import {Login} from './Pages/Login.jsx';
-import {WelcomePage} from './Pages/WelcomePage.jsx';
-import {SignUp} from './Pages/SignUp.jsx';
-import {Layout} from './Pages/Layout.jsx';
-import { Goals } from './Pages/Goals.jsx';
-import { History } from './Pages/History.jsx';
-import {SplashScreen} from './Pages/SplashScreen.jsx';
-import {Settings} from './Pages/Settings.jsx';
-import { AdminDashboard } from './Pages/AdminDashboard.jsx';
-import {AdminGoals} from './Pages/AdminGoals.jsx';
-
-
-function App (){
-  
+function App() {
   return (
     <Router>
-    <Routes>
-    <Route element={<Layout/>}>//prop element
-    
-    <Route path="/SplashScreen.jsx" element={<SplashScreen/>}/>//default element
-    <Route path="/" element={<WelcomePage/>}/>//default element
-    <Route path="/SignUp.jsx" element={<SignUp/>}/>
-    <Route path="/Login.jsx" element={<Login/>}/>
-    <Route path="/Dashboard.jsx" element={<Dashboard/>}/>
-    
-    <Route path="/Journal.jsx" element={<Journal/>}/>
-    <Route path="/Goals.jsx" element={<Goals/>}/>
-    <Route path="/History.jsx" element={<History/>}/>
-    <Route path="/Notification.jsx" element={<Notification/>}/>
-    <Route path="/Settings.jsx" element={<Settings/>}/>
-    <Route path="/AdminDashboard.jsx" element={<AdminDashboard/>}/>
-    <Route path="/AdminGoals.jsx" element={<AdminGoals/>}/>
-    
-    </Route>
-    </Routes>
+      <Routes>
+        {/* Public / entry screens (no sidebar) */}
+        <Route path="/splash" element={<SplashScreen />} />
+        <Route path="/" element={<WelcomePage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+
+        {/* Authenticated app shell */}
+        <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/journal" element={<Journal />} />
+          <Route path="/goals" element={<Goals />} />
+          <Route path="/history" element={<History />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/goals" element={<AdminGoals />} />
+        </Route>
+      </Routes>
     </Router>
-    
   );
 }
 
