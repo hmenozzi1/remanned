@@ -1,25 +1,58 @@
-import '../index.css';
-import Button from "./Button.jsx";
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+// src/components/ProfileBanner.jsx
+import "../index.css";
+import React from "react";
 
-export default function ProfileBanner({children}){
-    
-    return(<>   
-    
-    <div id="profile-banner">
-        <div id="banner-section-1">
-             <img  id="banner-logo" src="src\assets\Screenshot 2025-11-02 055107.png" alt="" />
-    <h1 id= "profile-banner-header">MQ&trade; Hub</h1> 
-        </div>
-        <div id="banner-section-2">
-              <img src="src\assets\Icon-round-Question_mark.svg.png" alt="" id="banner-icon" />
-    <img  id="profile-img" src="src\assets\smiling-young-man-illustration_1308-174669.jpg" alt="" />
-        </div>
-   
- 
-    </div>
-  
-     
-        
-        </>);
-    }
+export default function ProfileBanner() {
+  return (
+    <header
+      id="profile-banner"
+      style={{
+        gridArea: "banner",
+        width: "100%",
+        height: "64px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        padding: "0 1.75rem",
+        backgroundColor: "#050608",
+        borderBottom: "1px solid rgba(255,255,255,0.05)",
+      }}
+    >
+      {/* Right side: help + avatar */}
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
+        <button
+          style={{
+            width: "32px",
+            height: "32px",
+            borderRadius: "999px",
+            border: "1px solid rgba(255,255,255,0.3)",
+            backgroundColor: "transparent",
+            color: "#9e865a",
+            fontSize: "1rem",
+            cursor: "pointer",
+          }}
+          aria-label="Help and support"
+          title="Help"
+        >
+          ?
+        </button>
+
+        {/* Avatar placeholder – swap for an <img> if you want */}
+        <div
+          style={{
+            width: "36px",
+            height: "36px",
+            borderRadius: "999px",
+            backgroundColor: "#9e865a",
+          }}
+        />
+      </div>
+    </header>
+  );
+}

@@ -1,3 +1,4 @@
+// src/App.jsx
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import { Dashboard } from "./Pages/Dashboard.jsx";
@@ -17,21 +18,23 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Public / entry screens (no sidebar) */}
-        <Route path="/splash" element={<SplashScreen />} />
-        <Route path="/" element={<WelcomePage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<SignUp />} />
-
-        {/* Authenticated app shell */}
         <Route element={<Layout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/journal" element={<Journal />} />
-          <Route path="/goals" element={<Goals />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/goals" element={<AdminGoals />} />
+          {/* Public / entry routes */}
+          <Route path="/SplashScreen.jsx" element={<SplashScreen />} />
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/SignUp.jsx" element={<SignUp />} />
+          <Route path="/Login.jsx" element={<Login />} />
+
+          {/* User routes */}
+          <Route path="/Dashboard.jsx" element={<Dashboard />} />
+          <Route path="/Journal.jsx" element={<Journal />} />
+          <Route path="/Goals.jsx" element={<Goals />} />
+          <Route path="/History.jsx" element={<History />} />
+          <Route path="/Settings.jsx" element={<Settings />} />
+
+          {/* Admin routes */}
+          <Route path="/AdminDashboard.jsx" element={<AdminDashboard />} />
+          <Route path="/AdminGoals.jsx" element={<AdminGoals />} />
         </Route>
       </Routes>
     </Router>

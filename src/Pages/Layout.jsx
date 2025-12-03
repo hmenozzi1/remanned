@@ -1,13 +1,14 @@
-import Navbar from "../components/Navbar.jsx";
+// src/Pages/Layout.jsx
 import { Outlet } from "react-router-dom";
 
-export function Layout({ showNavbar = true }) {
+/**
+ * Simple layout wrapper – no global Navbar.
+ * Each page is responsible for its own header/navigation.
+ */
+export function Layout() {
   return (
-    <>
-      {showNavbar && <Navbar />}
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <main>
+      <Outlet />
+    </main>
   );
 }

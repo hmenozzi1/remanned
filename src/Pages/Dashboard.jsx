@@ -1,276 +1,455 @@
+// src/Pages/Dashboard.jsx
 import "../index.css";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-
 import Footer from "../components/Footer.jsx";
 import Body from "../components/Body.jsx";
-import Card from "../components/Card.jsx";
-import ProfileBanner from "../components/ProfileBanner.jsx";
-import Sidebar from "../components/SideBar.jsx";
-import MainSection from "../components/MainSection.jsx";
-import { fetchDashboardData } from "../api/dashboardApi.js";
+import { useNavigate } from "react-router-dom";
+import React from "react";
 
+/**
+ * User Dashboard – MQ3™ Hub
+ * Left column: app nav + End Session
+ * Right: MQ3™ Cycle, SQ Completion, AQ Progress
+ */
 export function Dashboard() {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [dashboardData, setDashboardData] = useState(null);
-
   const navigate = useNavigate();
 
-  useEffect(() => {
-    let isMounted = true;
-
-    async function load() {
-      try {
-        const data = await fetchDashboardData({
-          userId: 1, // TODO: replace with real logged-in user
-          targetWeekNumber: 1,
-        });
-
-        if (isMounted) {
-          setDashboardData(data);
-          setLoading(false);
-        }
-      } catch (err) {
-        console.error(err);
-        if (isMounted) {
-          setError("Unable to load dashboard data.");
-          setLoading(false);
-        }
-      }
-    }
-
-    load();
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  const handleViewGoals = () => {
-    navigate("/goals");
-  };
-
-  const handleViewHistory = () => {
-    navigate("/history");
-  };
-
-  const handleContactSupport = () => {
-    // For now just route to history/journal – update later when support page exists
-    navigate("/journal");
-  };
-
-  // Derived metrics from scoreboard
-  const scoreboard = dashboardData?.scoreboard;
-
-  const totalPoints = scoreboard ? Number(scoreboard.total_points) || 0 : 0;
-  const mqPercent = Math.round((totalPoints / 21) * 100); // 21 max weekly points
-
-  const lifePoints = scoreboard ? Number(scoreboard.life_points) || 0 : 0;
-  const leadershipPoints = scoreboard
-    ? Number(scoreboard.leadership_points) || 0
-    : 0;
-  const legacyPoints = scoreboard ? Number(scoreboard.legacy_points) || 0 : 0;
-
-  const lifePercent = Math.round((lifePoints / 7) * 100); // each domain max 7
-  const leadershipPercent = Math.round((leadershipPoints / 7) * 100);
-  const legacyPercent = Math.round((legacyPoints / 7) * 100);
+  const goDashboard = () => navigate("/Dashboard.jsx");
+  const goGoals = () => navigate("/Goals.jsx");
+  const goHistory = () => navigate("/History.jsx");
+  const goJournal = () => navigate("/Journal.jsx");
 
   return (
     <>
       <Body>
-        <div className="dashboard-layout">
-          <ProfileBanner />
-          <Sidebar />
-
-          <MainSection
+        <div
+          style={{
+            display: "flex",
+            minHeight: "100vh",
+            backgroundColor: "#050608",
+            color: "#ffffff",
+          }}
+        >
+          {/* LEFT SIDEBAR COLUMN */}
+          <aside
             style={{
-              display: "grid",
-              height: "40vh",
-              gridTemplateAreas: '"top top" "bottom-left bottom-right"',
-              gridTemplateRows: "60vh",
-              flexGrow: "1",
+              width: "260px",
+              backgroundColor: "#050608",
+              borderRight: "1px solid #262933",
+              display: "flex",
+              flexDirection: "column",
+              padding: "1.25rem 1.5rem",
+              boxSizing: "border-box",
             }}
           >
-            {/* Top MQ Ring / Overview */}
-            <Card
-              className="top-card"
+            {/* Brand */}
+            <div
               style={{
-                width: "80vw",
-                height: "63vh",
                 display: "flex",
-                textAlign: "center",
-                margin: "auto",
-                gridArea: "top",
-                flexDirection: "column",
-                marginTop: "2vh",
-                marginBottom: "1vh",
+                alignItems: "center",
+                gap: "0.75rem",
+                marginBottom: "2.5rem",
               }}
             >
-              <div className="contact-support-banner">
-                <p className="contact-support-text">
-                  Contact support for goal reconciliation.
-                </p>
-                <button
-                  className="contact-support-btn"
-                  onClick={handleContactSupport}
-                  style={{ backgroundColor: "#9e865a" }}
-                >
-                  Contact Support
-                </button>
-              </div>
-
-              <h1 id="top-card-header">MQ3TM Cycle Overview</h1>
-              <h2 className="top-card-subheader">
-                Your journey through the MQ3TM cycle
-              </h2>
-
-              {/* Ring with live MQ points */}
-              <div className="mq-ring-wrapper">
-                <img
-                  src="src/assets/Screenshot 2025-11-19 112150.png"
-                  id="mq-img"
-                  alt="MQ3TM cycle ring"
-                />
-                <div className="mq-ring-center">
-                  {loading && <p className="mq-ring-loading">Loading...</p>}
-                  {error && (
-                    <p className="mq-ring-error">
-                      {error} Showing placeholder data.
-                    </p>
-                  )}
-                  {!loading && (
-                    <>
-                      <p className="mq-ring-points">{totalPoints.toFixed(2)}</p>
-                      <p className="mq-ring-label">MQ Points</p>
-                      <p className="mq-ring-streak">
-                        {dashboardData?.week
-                          ? `Week ${dashboardData.week.week_number}`
-                          : ""}
-                      </p>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {/* Legend */}
-              <div className="mq-container">
-                <div className="mq-item-container">
-                  <img
-                    src="src/assets/new-moon (1).png"
-                    className="mq-icons"
-                    alt=""
-                  />
-                  <p className="mq-list-option">Completed Works</p>
-                </div>
-                <div className="mq-item-container">
-                  <img
-                    src="src/assets/red-flag.png"
-                    className="mq-icons"
-                    alt=""
-                  />
-                  <p className="mq-list-option">Checkpoints</p>
-                </div>
-                <div className="mq-item-container">
-                  <img
-                    src="src/assets/new-moon.png"
-                    className="mq-icons"
-                    alt=""
-                  />
-                  <p className="mq-list-option">Upcoming Works</p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Bottom row cards */}
-            <div className="bottom-container">
-              {/* SQ card */}
-              <Card
-                className="bottom-card-left"
+              <div
                 style={{
-                  height: "35vh",
-                  marginLeft: "1vh",
-                  width: "40vw",
-                  gap: "2vh",
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "999px",
+                  border: "2px solid #9e865a",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "0.8rem",
+                  fontWeight: "bold",
                 }}
               >
-                <h1 className="card-header">SQ Completion</h1>
+                MQ
+              </div>
+              <span
+                style={{
+                  fontSize: "0.95rem",
+                  letterSpacing: "0.12em",
+                  color: "#9e865a",
+                  textTransform: "uppercase",
+                }}
+              >
+                MQ3™ Hub
+              </span>
+            </div>
 
-                <div className="progess-bar-container completed-progress-bar-container">
-                  <h1 className="card-subheader">Phase 1</h1>
-                  <button
-                    className="completed-btn"
-                    onClick={handleViewGoals}
-                    style={{ backgroundColor: "#9e865a" }}
+            {/* Nav items */}
+            <nav
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.75rem",
+                fontSize: "0.8rem",
+                letterSpacing: "0.12em",
+              }}
+            >
+              <button
+                onClick={goDashboard}
+                style={{
+                  textAlign: "left",
+                  padding: "0.6rem 0.75rem",
+                  borderRadius: "8px",
+                  border: "none",
+                  cursor: "pointer",
+                  backgroundColor: "#9e865a",
+                  color: "#000",
+                  fontWeight: 600,
+                  textTransform: "uppercase",
+                }}
+              >
+                Dashboard
+              </button>
+
+              <button
+                onClick={goGoals}
+                style={{
+                  textAlign: "left",
+                  padding: "0.6rem 0.75rem",
+                  borderRadius: "8px",
+                  border: "none",
+                  cursor: "pointer",
+                  backgroundColor: "transparent",
+                  color: "#f5f5f5",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                }}
+              >
+                Goals
+              </button>
+
+              <button
+                onClick={goHistory}
+                style={{
+                  textAlign: "left",
+                  padding: "0.6rem 0.75rem",
+                  borderRadius: "8px",
+                  border: "none",
+                  cursor: "pointer",
+                  backgroundColor: "transparent",
+                  color: "#f5f5f5",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                }}
+              >
+                History
+              </button>
+
+              <button
+                onClick={goJournal}
+                style={{
+                  textAlign: "left",
+                  padding: "0.6rem 0.75rem",
+                  borderRadius: "8px",
+                  border: "none",
+                  cursor: "pointer",
+                  backgroundColor: "transparent",
+                  color: "#f5f5f5",
+                  fontWeight: 500,
+                  textTransform: "uppercase",
+                }}
+              >
+                Journal
+              </button>
+            </nav>
+
+            {/* Spacer */}
+            <div style={{ flexGrow: 1 }} />
+
+            {/* End Session button */}
+            <button
+              style={{
+                width: "100%",
+                padding: "0.75rem 1rem",
+                borderRadius: "999px",
+                border: "none",
+                backgroundColor: "#de3b40",
+                color: "#ffffff",
+                fontWeight: 600,
+                fontSize: "0.8rem",
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                cursor: "pointer",
+              }}
+              onClick={() => alert("End Session")}
+            >
+              End Session
+            </button>
+          </aside>
+
+          {/* MAIN CONTENT */}
+          <main
+            style={{
+              flex: 1,
+              padding: "2rem 2.5rem",
+              boxSizing: "border-box",
+              backgroundColor: "#111318",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.5rem",
+            }}
+          >
+            {/* MQ3TM Cycle Overview card */}
+            <section
+              style={{
+                backgroundColor: "#191b23",
+                borderRadius: "12px",
+                padding: "2rem",
+                boxShadow: "0 0 25px #9e865a33",
+              }}
+            >
+              <h2
+                style={{
+                  textAlign: "center",
+                  marginBottom: "0.25rem",
+                  fontSize: "1.3rem",
+                  letterSpacing: "0.08em",
+                }}
+              >
+                MQ3TM Cycle Overview
+              </h2>
+              <p
+                style={{
+                  textAlign: "center",
+                  marginBottom: "1.5rem",
+                  fontSize: "0.8rem",
+                  color: "#c3c3c3",
+                }}
+              >
+                Your journey through the MQ3TM cycle
+              </p>
+
+              <div
+                style={{
+                  position: "relative",
+                  width: "260px",
+                  height: "260px",
+                  margin: "0 auto",
+                }}
+              >
+                <svg
+                  width="260"
+                  height="260"
+                  viewBox="0 0 220 220"
+                  style={{ position: "absolute", top: 0, left: 0 }}
+                >
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    fill="none"
+                    stroke="#2c3038"
+                    strokeWidth="14"
+                  />
+                  <circle
+                    cx="110"
+                    cy="110"
+                    r="100"
+                    fill="none"
+                    stroke="#9e865a"
+                    strokeWidth="14"
+                    strokeDasharray={2 * Math.PI * 100}
+                    strokeDashoffset={2 * Math.PI * 100 * 0.33}
+                    strokeLinecap="round"
+                    transform="rotate(-90 110 110)"
+                  />
+                </svg>
+
+                <svg
+                  width="200"
+                  height="200"
+                  viewBox="0 0 160 160"
+                  style={{ position: "absolute", top: 30, left: 30 }}
+                >
+                  <circle
+                    cx="80"
+                    cy="80"
+                    r="70"
+                    fill="none"
+                    stroke="#2c3038"
+                    strokeWidth="10"
+                  />
+                  <circle
+                    cx="80"
+                    cy="80"
+                    r="70"
+                    fill="none"
+                    stroke="#9e865a"
+                    strokeWidth="10"
+                    strokeDasharray={2 * Math.PI * 70}
+                    strokeDashoffset={2 * Math.PI * 70 * 0.6}
+                    strokeLinecap="round"
+                    transform="rotate(-90 80 80)"
+                  />
+                </svg>
+
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  <div style={{ fontSize: "1.7rem" }}>1870</div>
+                  <div style={{ fontSize: "0.9rem", color: "#d1bf86" }}>
+                    MQ³™ Points
+                  </div>
+                  <div style={{ fontSize: "0.8rem", marginTop: "0.25rem" }}>
+                    7 Day Streak
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Bottom row: SQ + AQ cards */}
+            <section
+              style={{
+                display: "grid",
+                gridTemplateColumns: "minmax(0, 1fr) minmax(0, 1fr)",
+                gap: "1.5rem",
+              }}
+            >
+              {/* SQ Completion */}
+              <div
+                style={{
+                  backgroundColor: "#191b23",
+                  borderRadius: "12px",
+                  padding: "1.5rem",
+                  boxShadow: "0 0 15px #9e865a33",
+                  fontSize: "0.85rem",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  <h3 style={{ color: "#9e865a", fontSize: "0.95rem" }}>
+                    SQ Completion
+                  </h3>
+                  <span
+                    style={{
+                      padding: "0.2rem 0.7rem",
+                      borderRadius: "999px",
+                      backgroundColor: "#25a56a",
+                      fontSize: "0.7rem",
+                      fontWeight: 600,
+                    }}
                   >
                     Completed
-                  </button>
+                  </span>
                 </div>
-
-                {dashboardData?.activeCycle && (
-                  <h1 className="completed-date">
-                    {/* Use cycle end date as a rough completion date for now */}
-                    Completed cycle ending on{" "}
-                    {dashboardData.activeCycle.end_date}
-                  </h1>
-                )}
-
-                <p className="phase-description">
+                <p style={{ fontSize: "0.8rem", color: "#c3c3c3" }}>
+                  Phase I • Completed on July 16, 2024
+                </p>
+                <p
+                  style={{
+                    marginTop: "0.75rem",
+                    fontSize: "0.8rem",
+                    lineHeight: 1.4,
+                  }}
+                >
                   Phase I, focusing on self-awareness and inner peace, has been
                   successfully completed. Great progress!
                 </p>
-              </Card>
 
-              {/* AQ card */}
-              <Card
-                className="bottom-card-right"
-                style={{ height: "35vh", width: "40vw", gap: "2vh" }}
-              >
-                <h1 className="card-header">AQ Progress</h1>
-
-                <div className="in-progress-bar-container">
-                  <div className="in-progress-bar-container-2">
-                    <h1 className="card-subheader">Phase 2</h1>
-                    <p className="percentage-completion-text">
-                      {mqPercent}% Complete
-                    </p>
-                  </div>
-
-                  <progress
-                    className="progress-bar"
-                    value={mqPercent}
-                    max="100"
-                  >
-                    {mqPercent}%
-                  </progress>
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    width: "100%",
+                    height: "9px",
+                    borderRadius: "999px",
+                    backgroundColor: "#2c3038",
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      backgroundColor: "#32c96b",
+                    }}
+                  />
                 </div>
+              </div>
 
-                <p className="phase-description">
+              {/* AQ Progress */}
+              <div
+                style={{
+                  backgroundColor: "#191b23",
+                  borderRadius: "12px",
+                  padding: "1.5rem",
+                  boxShadow: "0 0 15px #9e865a33",
+                  fontSize: "0.85rem",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "0.75rem",
+                  }}
+                >
+                  <h3 style={{ color: "#9e865a", fontSize: "0.95rem" }}>
+                    AQ Progress
+                  </h3>
+                  <span
+                    style={{
+                      fontSize: "0.7rem",
+                      color: "#f5f5f5",
+                    }}
+                  >
+                    70% Complete
+                  </span>
+                </div>
+                <p style={{ fontSize: "0.8rem", color: "#c3c3c3" }}>
+                  Phase II • Adapting and thriving in changing environments.
+                </p>
+                <p
+                  style={{
+                    marginTop: "0.75rem",
+                    fontSize: "0.8rem",
+                    lineHeight: 1.4,
+                  }}
+                >
                   Phase II, enhancing your ability to thrive in changing
-                  environments, is currently {mqPercent}% complete. Keep going!
+                  environments, is currently 70% complete. Keep going!
                 </p>
 
-                {/* Optional small summary from domain percentages */}
-                {!loading && (
-                  <p className="phase-description small">
-                    Life {lifePercent}% • Leadership {leadershipPercent}% •
-                    Legacy {legacyPercent}%
-                  </p>
-                )}
-
-                <button
-                  className="history-link-btn"
-                  onClick={handleViewHistory}
-                  style={{ marginTop: "0.75rem", color: "#9e865a" }}
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    width: "100%",
+                    height: "9px",
+                    borderRadius: "999px",
+                    backgroundColor: "#2c3038",
+                    overflow: "hidden",
+                  }}
                 >
-                  View cycle history →
-                </button>
-              </Card>
-            </div>
-          </MainSection>
+                  <div
+                    style={{
+                      width: "70%",
+                      height: "100%",
+                      backgroundColor: "#f1c04a",
+                    }}
+                  />
+                </div>
+              </div>
+            </section>
+          </main>
         </div>
       </Body>
-
-      <Footer className="footer" />
+      <Footer />
     </>
   );
 }

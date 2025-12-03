@@ -1,125 +1,267 @@
+// src/Pages/Login.jsx
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../index.css";
+
+import logo from "../assets/logo.png";
 import Footer from "../components/Footer.jsx";
-import Body from "../components/Body.jsx";
-import Button from "../components/Button.jsx";
-import Card from "../components/Card.jsx";
-import Form from "../components/Form.jsx";
 
-export function Login(){
+export function Login() {
+  const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    remember: false,
+  });
 
-  const onClick=()=>{
-    alert('hello');
-  }
-  return(
-    
-    
-    <>
-    
-    <Body style={{height:"130vh" }}>
-    <div id="login-container">
-    <img src="src\assets\Screenshot 2025-10-30 150421.png" class="remanned-banner" alt="" />
-    <div className="card-container">
-    <Card>
-    
-    <Form>
+  const handleToggle = () => {
+    setIsAdmin(!isAdmin);
+    setFormData({ username: "", password: "", remember: false });
+  };
 
-<form className="contact-form">
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
 
-  <h1 className="contact-form-header">Welcome Back.</h1>
-   <div className="user-admin-toggle">
-    
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-    <a href="" className="user-admin-text">User Login</a>
+    // TODO: replace this with real API auth later.
+    // For now, just route to user or admin dashboard.
+    if (isAdmin) {
+      navigate("/admin/dashboard");
+    } else {
+      navigate("/dashboard");
+    }
+  };
 
+  return (
+    <div
+      className="login-page-wrapper"
+      style={{
+        backgroundColor: "#000",
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {/* Top bar with logo */}
+      <header
+        style={{
+          display: "flex",
+          alignItems: "center",
+          padding: "0.5rem 1rem",
+          backgroundColor: "#000",
+        }}
+      >
+        <img src={logo} alt="Remanned Logo" style={{ height: "32px" }} />
+      </header>
 
+      {/* Login form */}
+      <main
+        style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "1rem 2rem",
+          textAlign: "center",
+        }}
+      >
+        <div
+          className="login-container"
+          style={{
+            background: "rgba(255, 255, 255, 0.05)",
+            borderRadius: "12px",
+            boxShadow: "0 8px 32px 0 rgba(255, 255, 255, 0.1)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            border: "1px solid rgba(255, 255, 255, 0.18)",
+            padding: "2rem",
+            maxWidth: "400px",
+            width: "100%",
+            color: "#fff",
+          }}
+        >
+          {/* Toggle for User / Admin */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <button
+              type="button"
+              onClick={() => setIsAdmin(false)}
+              style={{
+                backgroundColor: !isAdmin ? "#9e865a" : "transparent",
+                color: !isAdmin ? "#000" : "#fff",
+                border: "none",
+                padding: "0.5rem 1.5rem",
+                borderRadius: "20px 0 0 20px",
+                cursor: "pointer",
+                fontWeight: "bold",
+                flex: 1,
+              }}
+            >
+              User
+            </button>
+            <button
+              type="button"
+              onClick={() => setIsAdmin(true)}
+              style={{
+                backgroundColor: isAdmin ? "#9e865a" : "transparent",
+                color: isAdmin ? "#000" : "#fff",
+                border: "none",
+                padding: "0.5rem 1.5rem",
+                borderRadius: "0 20px 20px 0",
+                cursor: "pointer",
+                fontWeight: "bold",
+                flex: 1,
+              }}
+            >
+              Admin
+            </button>
+          </div>
 
+          {/* Login Title */}
+          <h2
+            style={{
+              marginBottom: "1.5rem",
+              fontWeight: "bold",
+              fontSize: "1.5rem",
+            }}
+          >
+            {isAdmin ? "Admin Login" : "User Login"}
+          </h2>
 
+          {/* Form */}
+          <form onSubmit={handleSubmit}>
+            <label
+              htmlFor="username"
+              style={{
+                display: "block",
+                textAlign: "left",
+                marginBottom: "0.5rem",
+                fontWeight: "bold",
+              }}
+            >
+              Username or Email
+            </label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+              style={{
+                width: "100%",
+                padding: "0.5rem",
+                marginBottom: "1rem",
+                borderRadius: "6px",
+                border: "none",
+                outline: "none",
+                fontSize: "1rem",
+              }}
+            />
 
-<label class="switch">
-  <input type="checkbox" checked/>
-  <span class="slider round"></span>
-</label>
+            <label
+              htmlFor="password"
+              style={{
+                display: "block",
+                textAlign: "left",
+                marginBottom: "0.5rem",
+                fontWeight: "bold",
+              }}
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              style={{
+                width: "100%",
+                padding: "0.5rem",
+                marginBottom: "1rem",
+                borderRadius: "6px",
+                border: "none",
+                outline: "none",
+                fontSize: "1rem",
+              }}
+            />
 
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "1.5rem",
+                color: "#fff",
+                fontSize: "0.9rem",
+              }}
+            >
+              <label>
+                <input
+                  type="checkbox"
+                  name="remember"
+                  checked={formData.remember}
+                  onChange={handleChange}
+                  style={{ marginRight: "0.4rem" }}
+                />
+                Remember me
+              </label>
 
+              <button
+                type="button"
+                onClick={() => alert("Trigger password recovery flow")}
+                style={{
+                  background: "transparent",
+                  border: "none",
+                  color: "#9e865a",
+                  cursor: "pointer",
+                  fontWeight: "bold",
+                  textDecoration: "underline",
+                }}
+              >
+                Forgot password?
+              </button>
+            </div>
 
-    <a href="" className="user-admin-text">Admin Login</a>
-   
+            <button
+              type="submit"
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                fontSize: "1.2rem",
+                fontWeight: "bold",
+                backgroundColor: "#9e865a",
+                color: "#fff",
+                border: "none",
+                borderRadius: "8px",
+                cursor: "pointer",
+                letterSpacing: "0.1em",
+                textTransform: "uppercase",
+              }}
+            >
+              Log In
+            </button>
+          </form>
+        </div>
+      </main>
 
-    
- 
-
-   
-    
-    
-    
-    
+      <Footer />
     </div>
-    <div className="input-container">
-    
-  
-    <label className="form-input-labels">Email or Username</label>
-    <input type="text" className="form-input" placeholder="user@spiritualquest.com" />
-
-    
- 
-    <label className="form-input-labels">Password</label>
-    <input type="text" className="form-input" placeholder="securePassword123" />
-   
-    
-    
-    
-    
-    </div>
-      <div className="input-container-2">
-    
-    <div class="remember-me-container">
- <input type="checkbox" className="form-input-2"/>
-    <label id="remember-me-label">Remember Me</label>
-    </div>
-  
-   
-
-    
- 
-   <a href=""className='tech-support-btn'>Forgot Password?</a>
-   
-    
-    
-    
-    
-    
-    </div>
-    <Button name="Login" onClick={onClick} icon={<img className="btn-icon logout-icon" src="src\assets\door-leave-icon.png"/>}></Button>
-    <a href=""className='tech-support-btn' id="tech-support-link">Click for Technical Support</a>
-    
-    </form>
-    </Form>
-    
-    
-    
-    </Card>
-    </div>
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    </Body>
-    
-    
-    
-    <Footer></Footer>
-    </>
-    
-    
-    
-    
   );
 }
