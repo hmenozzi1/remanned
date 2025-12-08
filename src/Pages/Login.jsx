@@ -1,6 +1,7 @@
 // src/Pages/Login.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import "../index.css";
 
 import logo from "../assets/logo.png";
@@ -8,16 +9,21 @@ import Footer from "../components/Footer.jsx";
 
 export function Login() {
   const navigate = useNavigate();
+  const { login } = useAuth();
+  
   const [isAdmin, setIsAdmin] = useState(false);
   const [formData, setFormData] = useState({
     username: "",
     password: "",
     remember: false,
   });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleToggle = () => {
     setIsAdmin(!isAdmin);
     setFormData({ username: "", password: "", remember: false });
+    setError("");
   };
 
   const handleChange = (e) => {
@@ -28,15 +34,33 @@ export function Login() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError("");
 
-    // TODO: replace this with real API auth later.
-    // For now, just route to user or admin dashboard.
-    if (isAdmin) {
-      navigate("/admin/dashboard");
-    } else {
-      navigate("/dashboard");
+    try {
+      // Login with API
+      const response = await login(formData.username, formData.password);
+      
+      // Check if admin login is required
+      if (isAdmin && !response.user.is_admin) {
+        setError("Admin credentials required");
+        setLoading(false);
+        return;
+      }
+
+      // Navigate based on user type
+      if (response.user.is_admin) {
+        navigate("/admin/dashboard");
+      } else {
+        navigate("/dashboard"); 
+      }
+    } catch (err) {
+      console.error("Login error:", err);
+      setError(err.response?.data?.message || "Login failed. Please check your credentials.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -142,6 +166,22 @@ export function Login() {
             {isAdmin ? "Admin Login" : "User Login"}
           </h2>
 
+          {/* Error message */}
+          {error && (
+            <div
+              style={{
+                backgroundColor: "#ff6b6b",
+                color: "#fff",
+                padding: "0.75rem",
+                borderRadius: "6px",
+                marginBottom: "1rem",
+                fontSize: "0.9rem",
+              }}
+            >
+              {error}
+            </div>
+          )}
+
           {/* Form */}
           <form onSubmit={handleSubmit}>
             <label
@@ -162,6 +202,7 @@ export function Login() {
               value={formData.username}
               onChange={handleChange}
               required
+              disabled={loading}
               style={{
                 width: "100%",
                 padding: "0.5rem",
@@ -191,6 +232,7 @@ export function Login() {
               value={formData.password}
               onChange={handleChange}
               required
+              disabled={loading}
               style={{
                 width: "100%",
                 padding: "0.5rem",
@@ -218,6 +260,7 @@ export function Login() {
                   name="remember"
                   checked={formData.remember}
                   onChange={handleChange}
+                  disabled={loading}
                   style={{ marginRight: "0.4rem" }}
                 />
                 Remember me
@@ -226,6 +269,7 @@ export function Login() {
               <button
                 type="button"
                 onClick={() => alert("Trigger password recovery flow")}
+                disabled={loading}
                 style={{
                   background: "transparent",
                   border: "none",
@@ -241,21 +285,22 @@ export function Login() {
 
             <button
               type="submit"
+              disabled={loading}
               style={{
                 width: "100%",
                 padding: "0.75rem",
                 fontSize: "1.2rem",
                 fontWeight: "bold",
-                backgroundColor: "#9e865a",
+                backgroundColor: loading ? "#666" : "#9e865a",
                 color: "#fff",
                 border: "none",
                 borderRadius: "8px",
-                cursor: "pointer",
+                cursor: loading ? "not-allowed" : "pointer",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
               }}
             >
-              Log In
+              {loading ? "Logging in..." : "Log In"}
             </button>
           </form>
         </div>

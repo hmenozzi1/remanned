@@ -37,12 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
-    'corsheaders',
-    'api'
+    # Third-party apps for REST API and frontend integration
+    'rest_framework',              # Django REST Framework for API endpoints
+    'rest_framework.authtoken',    # Token-based authentication
+    'corsheaders',                 # Handle Cross-Origin Resource Sharing (CORS)
+    # ReManned application
+    'api',                         # Main API app with models and views
 ]
 
 MIDDLEWARE = [
+    # IMPORTANT: CorsMiddleware must be placed BEFORE CommonMiddleware
+    'corsheaders.middleware.CorsMiddleware',  # Handle CORS headers first
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -50,7 +55,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -75,6 +79,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+# Using SQLite for development - predefined connection maintained
 
 DATABASES = {
     'default': {
@@ -83,8 +88,6 @@ DATABASES = {
     }
 }
 
-# Allow React frontend to access
-CORS_ALLOW_ALL_ORIGINS = True  # (for dev only, lock down later)
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
@@ -126,3 +129,125 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# ============================================================================
+# CORS (Cross-Origin Resource Sharing) Configuration
+# ============================================================================
+# Allow React frontend running on different port to access Django API
+# For production, replace CORS_ALLOW_ALL_ORIGINS with specific origins
+
+# DEVELOPMENT: Allow all origins (NOT for production!)
+CORS_ALLOW_ALL_ORIGINS = True  # TODO: Lock down for production
+
+# PRODUCTION: Use this instead (uncomment and remove CORS_ALLOW_ALL_ORIGINS)
+# CORS_ALLOWED_ORIGINS = [
+#     "http://localhost:5173",      # Vite development server
+#     "http://localhost:3000",      # React development server
+#     "https://your-production-domain.com",  # Your production frontend URL
+# ]
+
+# Allow credentials (cookies, authorization headers) in CORS requests
+CORS_ALLOW_CREDENTIALS = True
+
+# Additional CORS settings for development
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+
+# ============================================================================
+# Django REST Framework Configuration
+# ============================================================================
+# Configure API authentication, permissions, and pagination
+
+REST_FRAMEWORK = {
+    # Authentication classes - order matters!
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Token-based auth (primary)
+        'rest_framework.authentication.SessionAuthentication',  # Session auth for browsable API
+    ],
+    
+    # Default permissions - require authentication for all endpoints
+    # Individual views can override this
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ],
+    
+    # Pagination settings for list views
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 100,  # Default number of items per page
+    
+    # Parser classes - handle different request content types
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ],
+    
+    # Renderer classes - handle different response formats
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',  # Web UI for testing
+    ],
+    
+    # Exception handling
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
+    
+    # DateTime format for API responses
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
+}
+
+
+# ============================================================================
+# Authentication Token Configuration
+# ============================================================================
+# Configure how authentication tokens behave
+
+# Token expiration settings (optional - tokens don't expire by default)
+# To implement token expiration, you would need to create a custom token model
+# or use django-rest-framework-simplejwt for JWT tokens
+
+# Example for future JWT implementation:
+# from datetime import timedelta
+# SIMPLE_JWT = {
+#     'ACCESS_TOKEN_LIFETIME': timedelta(hours=24),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
+# }
+
+
+# ============================================================================
+# Custom User Model (if needed)
+# ============================================================================
+# If you're using a custom User model in api/models.py, uncomment this:
+# AUTH_USER_MODEL = 'api.User'
+
+
+# ============================================================================
+# Additional Security Settings for Production
+# ============================================================================
+# Uncomment these when deploying to production
+
+# SECURE_SSL_REDIRECT = True
+# SESSION_COOKIE_SECURE = True
+# CSRF_COOKIE_SECURE = True
+# SECURE_BROWSER_XSS_FILTER = True
+# SECURE_CONTENT_TYPE_NOSNIFF = True
+# X_FRAME_OPTIONS = 'DENY'

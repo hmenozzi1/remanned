@@ -1,131 +1,113 @@
 // src/components/Sidebar.jsx
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 /**
  * MQ3™ Hub Sidebar
- * Props:
- *  - activeSection: "dashboard" | "goals" | "history" | "journal"
- *  - onNavigate(id): callback when a navigation item is selected
+ *
+ * - Shows Dashboard / Goals / History / Journal
+ * - Highlights the active section
+ * - Handles navigation with react-router
+ * - Shows an "End Session" button at the bottom
+ *
+ * Usage:
+ *   <Sidebar activeSection="dashboard" />
+ *   <Sidebar activeSection="goals" />
  */
-export default function Sidebar({ activeSection = "dashboard", onNavigate }) {
+function Sidebar({ activeSection = "dashboard" }) {
+  const navigate = useNavigate();
+
   const menuItems = [
-    { id: "dashboard", label: "Dashboard" },
-    { id: "goals", label: "Goals" },
-    { id: "history", label: "History" },
-    { id: "journal", label: "Journal" },
+    { id: "dashboard", label: "Dashboard", path: "/Dashboard.jsx" },
+    { id: "goals", label: "Goals", path: "/Goals.jsx" },
+    { id: "history", label: "History", path: "/History.jsx" },
+    { id: "journal", label: "Journal", path: "/Journal.jsx" },
   ];
+
+  const handleNavigate = (id) => {
+    const target = menuItems.find((item) => item.id === id);
+    if (target && target.path) {
+      navigate(target.path);
+    }
+  };
 
   return (
     <nav
       style={{
-        width: "260px",
-        backgroundColor: "#050608",
-        borderRight: "1px solid #262933",
+        width: "240px",
+        backgroundColor: "#1e1e1e",
         display: "flex",
         flexDirection: "column",
-        padding: "1.25rem 1.5rem",
+        padding: "1.5rem",
         boxSizing: "border-box",
-        fontWeight: 500,
-        letterSpacing: "0.12em",
-        height: "100vh",
+        fontWeight: "bold",
+        letterSpacing: "0.05em",
+        minHeight: "100vh",
       }}
     >
-      {/* Brand header */}
+      {/* Brand / title */}
       <div
         style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.75rem",
-          marginBottom: "2.5rem",
+          marginBottom: "2rem",
+          fontSize: "1.1rem",
+          color: "#9e865a",
+          fontWeight: "bold",
         }}
       >
-        <div
+        MQ3™ Hub
+      </div>
+
+      {/* Nav items */}
+      {menuItems.map(({ id, label }) => {
+        const isActive = activeSection === id;
+        return (
+          <button
+            key={id}
+            onClick={() => handleNavigate(id)}
+            style={{
+              background: "none",
+              border: "none",
+              color: isActive ? "#9e865a" : "#ccc",
+              marginBottom: "1rem",
+              fontWeight: isActive ? "bold" : "normal",
+              cursor: "pointer",
+              fontSize: "0.9rem",
+              textAlign: "left",
+              padding: 0,
+              outline: "none",
+              letterSpacing: "0.08em",
+              textTransform: "uppercase",
+            }}
+            aria-current={isActive ? "page" : undefined}
+          >
+            {label}
+          </button>
+        );
+      })}
+
+      {/* Push end-session button to bottom */}
+      <div style={{ marginTop: "auto" }}>
+        <button
+          onClick={() => alert("Ending session")}
           style={{
-            width: "32px",
-            height: "32px",
-            borderRadius: "999px",
-            border: "2px solid #9e865a",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "0.8rem",
+            width: "100%",
+            padding: "0.75rem 1rem",
+            backgroundColor: "#9e865a",
+            border: "none",
+            color: "#000",
             fontWeight: "bold",
-            color: "#9e865a",
-          }}
-        >
-          MQ
-        </div>
-
-        <span
-          style={{
-            fontSize: "0.95rem",
-            color: "#9e865a",
-            letterSpacing: "0.12em",
+            borderRadius: "6px",
+            cursor: "pointer",
+            letterSpacing: "0.08em",
             textTransform: "uppercase",
-            fontWeight: 600,
           }}
         >
-          MQ3™ Hub
-        </span>
+          End Session
+        </button>
       </div>
-
-      {/* Menu */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "0.75rem",
-          fontSize: "0.8rem",
-          textTransform: "uppercase",
-        }}
-      >
-        {menuItems.map(({ id, label }) => {
-          const isActive = activeSection === id;
-          return (
-            <button
-              key={id}
-              onClick={() => onNavigate && onNavigate(id)}
-              style={{
-                padding: "0.6rem 0.75rem",
-                borderRadius: "8px",
-                backgroundColor: isActive ? "#9e865a" : "transparent",
-                color: isActive ? "#000" : "#f5f5f5",
-                border: "none",
-                cursor: "pointer",
-                textAlign: "left",
-                fontWeight: isActive ? 600 : 500,
-                outline: "none",
-              }}
-              aria-current={isActive ? "page" : undefined}
-            >
-              {label}
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Spacer pushes logout button to bottom */}
-      <div style={{ flexGrow: 1 }} />
-
-      {/* End Session button */}
-      <button
-        onClick={() => alert("Ending session")}
-        style={{
-          width: "100%",
-          padding: "0.75rem 1rem",
-          backgroundColor: "#de3b40",
-          border: "none",
-          color: "#fff",
-          fontWeight: 600,
-          borderRadius: "999px",
-          cursor: "pointer",
-          letterSpacing: "0.12em",
-          fontSize: "0.8rem",
-          textTransform: "uppercase",
-        }}
-      >
-        End Session
-      </button>
     </nav>
   );
 }
+
+export default Sidebar;
+export { Sidebar };
