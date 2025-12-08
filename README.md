@@ -128,7 +128,7 @@ Clone the repository: https://github.com/hmenozzi1/remanned.git
 ### Backend Setup
 cd remanned/backend
 
-**Create virtual environment (bash)**
+**Create virtual environment (bash)**:
 python -m venv venv
 
 **Activate virtual environment**:
