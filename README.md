@@ -3,7 +3,7 @@ README
 ##Side notes
 Api updated to handle DRF response format
 
-# 🚀 ReManned® MQ3™ Hub (Character Arc App Prototype)
+# ReManned® MQ3™ Hub (Character Arc App Prototype)
 
 A full-stack web application built as part of the **Character Arc™ Capstone Project**.
 
@@ -16,7 +16,7 @@ The ReManned® MQ3™ Hub is a journaling and growth-tracking platform where use
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 1. [Project Overview](#project-overview)  
 2. [Tech Stack](#tech-stack)  
@@ -34,7 +34,7 @@ The ReManned® MQ3™ Hub is a journaling and growth-tracking platform where use
 
 ---
 
-## 📦 Project Overview
+## Project Overview
 
 **ReManned® MQ3™ Hub** is a prototype for the Character Arc™ platform.
 
@@ -81,7 +81,7 @@ This is a **development / prototype build**: data is largely static on the front
 
 ---
 
-## 🏗 Architecture
+## ARCHITECTURE
 
 Repository layout (simplified):
 
@@ -131,21 +131,23 @@ cd remanned/backend
 **Create virtual environment (bash)**
 python -m venv venv
 
-**Activate virtual environment**
+**Activate virtual environment**:
 source venv/Scripts/activate
 
-**Install dependencies**
+**Install dependencies:**
 pip install django djangorestframework django-cors-headers
 
 **Apply migrations**:
 python manage.py migrate
 
-**Create test user**
+**Create test user**:
 python manage.py shell
 
 **In python shell**:
 from api.models import User
-User.objects.create(name="Test User", email="test@example.com") ** hit enter, then exit()**/
+User.objects.create(name="Test User", email="test@example.com") 
+
+** hit enter, then exit()**/
 
 exit()
 
@@ -160,6 +162,7 @@ then type exit()
 cd remanned
 
 npm install
+
 npm install axios
 
 ---
@@ -194,5 +197,5 @@ Login: http://127.0.0.1:3000/#/login
 Create test user (Prerequisite above)
 
 
-Sign-in with the test user: test@example.com / <any password> 
+Sign-in with the test user: test@example.com / (any password)
 
