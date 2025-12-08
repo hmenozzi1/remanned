@@ -4,19 +4,29 @@ import Footer from "../components/Footer.jsx";
 import Body from "../components/Body.jsx";
 import { useNavigate } from "react-router-dom";
 import React from "react";
+import Sidebar from "../components/Sidebar.jsx";
 
-/**
- * User Dashboard – MQ3™ Hub
- * Left column: app nav + End Session
- * Right: MQ3™ Cycle, SQ Completion, AQ Progress
- */
 export function Dashboard() {
   const navigate = useNavigate();
 
-  const goDashboard = () => navigate("/Dashboard.jsx");
-  const goGoals = () => navigate("/Goals.jsx");
-  const goHistory = () => navigate("/History.jsx");
-  const goJournal = () => navigate("/Journal.jsx");
+  const handleSidebarNavigate = (id) => {
+    switch (id) {
+      case "dashboard":
+        navigate("/dashboard");
+        break;
+      case "goals":
+        navigate("/goals");
+        break;
+      case "history":
+        navigate("/history");
+        break;
+      case "journal":
+        navigate("/journal");
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <>
@@ -29,156 +39,11 @@ export function Dashboard() {
             color: "#ffffff",
           }}
         >
-          {/* LEFT SIDEBAR COLUMN */}
-          <aside
-            style={{
-              width: "260px",
-              backgroundColor: "#050608",
-              borderRight: "1px solid #262933",
-              display: "flex",
-              flexDirection: "column",
-              padding: "1.25rem 1.5rem",
-              boxSizing: "border-box",
-            }}
-          >
-            {/* Brand */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                marginBottom: "2.5rem",
-              }}
-            >
-              <div
-                style={{
-                  width: "32px",
-                  height: "32px",
-                  borderRadius: "999px",
-                  border: "2px solid #9e865a",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "0.8rem",
-                  fontWeight: "bold",
-                }}
-              >
-                MQ
-              </div>
-              <span
-                style={{
-                  fontSize: "0.95rem",
-                  letterSpacing: "0.12em",
-                  color: "#9e865a",
-                  textTransform: "uppercase",
-                }}
-              >
-                MQ3™ Hub
-              </span>
-            </div>
-
-            {/* Nav items */}
-            <nav
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "0.75rem",
-                fontSize: "0.8rem",
-                letterSpacing: "0.12em",
-              }}
-            >
-              <button
-                onClick={goDashboard}
-                style={{
-                  textAlign: "left",
-                  padding: "0.6rem 0.75rem",
-                  borderRadius: "8px",
-                  border: "none",
-                  cursor: "pointer",
-                  backgroundColor: "#9e865a",
-                  color: "#000",
-                  fontWeight: 600,
-                  textTransform: "uppercase",
-                }}
-              >
-                Dashboard
-              </button>
-
-              <button
-                onClick={goGoals}
-                style={{
-                  textAlign: "left",
-                  padding: "0.6rem 0.75rem",
-                  borderRadius: "8px",
-                  border: "none",
-                  cursor: "pointer",
-                  backgroundColor: "transparent",
-                  color: "#f5f5f5",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                }}
-              >
-                Goals
-              </button>
-
-              <button
-                onClick={goHistory}
-                style={{
-                  textAlign: "left",
-                  padding: "0.6rem 0.75rem",
-                  borderRadius: "8px",
-                  border: "none",
-                  cursor: "pointer",
-                  backgroundColor: "transparent",
-                  color: "#f5f5f5",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                }}
-              >
-                History
-              </button>
-
-              <button
-                onClick={goJournal}
-                style={{
-                  textAlign: "left",
-                  padding: "0.6rem 0.75rem",
-                  borderRadius: "8px",
-                  border: "none",
-                  cursor: "pointer",
-                  backgroundColor: "transparent",
-                  color: "#f5f5f5",
-                  fontWeight: 500,
-                  textTransform: "uppercase",
-                }}
-              >
-                Journal
-              </button>
-            </nav>
-
-            {/* Spacer */}
-            <div style={{ flexGrow: 1 }} />
-
-            {/* End Session button */}
-            <button
-              style={{
-                width: "100%",
-                padding: "0.75rem 1rem",
-                borderRadius: "999px",
-                border: "none",
-                backgroundColor: "#de3b40",
-                color: "#ffffff",
-                fontWeight: 600,
-                fontSize: "0.8rem",
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                cursor: "pointer",
-              }}
-              onClick={() => alert("End Session")}
-            >
-              End Session
-            </button>
-          </aside>
+          {/* LEFT SIDEBAR: brand + nav + end session */}
+          <MQ3TMHubSidebar
+            activeSection="dashboard"
+            onNavigate={handleSidebarNavigate}
+          />
 
           {/* MAIN CONTENT */}
           <main

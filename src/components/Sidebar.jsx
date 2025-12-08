@@ -1,151 +1,131 @@
 // src/components/Sidebar.jsx
-import React, { useState } from "react";
-import "../index.css";
-import { Link, useLocation } from "react-router-dom";
-import Button from "./Button.jsx";
-import { FaBars } from "react-icons/fa";
+import React from "react";
 
-export default function Sidebar({ style }) {
-  const location = useLocation();
-  const [collapsed, setCollapsed] = useState(false);
-
-  const isActive = (path) => location.pathname === path;
+/**
+ * MQ3™ Hub Sidebar
+ * Props:
+ *  - activeSection: "dashboard" | "goals" | "history" | "journal"
+ *  - onNavigate(id): callback when a navigation item is selected
+ */
+export default function Sidebar({ activeSection = "dashboard", onNavigate }) {
+  const menuItems = [
+    { id: "dashboard", label: "Dashboard" },
+    { id: "goals", label: "Goals" },
+    { id: "history", label: "History" },
+    { id: "journal", label: "Journal" },
+  ];
 
   return (
-    <aside
-      id="sidebar-container"
+    <nav
       style={{
-        ...style,
-        gridArea: "sidebar",
+        width: "260px",
         backgroundColor: "#050608",
-        borderRight: "1px solid rgba(255,255,255,0.05)",
+        borderRight: "1px solid #262933",
         display: "flex",
         flexDirection: "column",
-        padding: collapsed ? "1rem 0.75rem" : "1.5rem 1.25rem",
-        minWidth: collapsed ? "70px" : "230px",
-        transition: "all 0.2s ease",
+        padding: "1.25rem 1.5rem",
+        boxSizing: "border-box",
+        fontWeight: 500,
+        letterSpacing: "0.12em",
+        height: "100vh",
       }}
     >
-      {/* Top row: collapse button + brand */}
+      {/* Brand header */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
           gap: "0.75rem",
-          marginBottom: "2rem",
+          marginBottom: "2.5rem",
         }}
       >
-        <button
-          onClick={() => setCollapsed((v) => !v)}
+        <div
           style={{
             width: "32px",
             height: "32px",
             borderRadius: "999px",
-            border: "1px solid rgba(255,255,255,0.25)",
-            backgroundColor: "transparent",
-            color: "#e5e7eb",
-            cursor: "pointer",
+            border: "2px solid #9e865a",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-          }}
-          aria-label="Toggle sidebar"
-        >
-          <FaBars size={14} />
-        </button>
-
-        {!collapsed && (
-          <div
-            style={{
-              fontSize: "1rem",
-              fontWeight: 700,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "#9e865a",
-            }}
-          >
-            MQ3™ Hub
-          </div>
-        )}
-      </div>
-
-      {/* Navigation */}
-      <nav style={{ flex: 1 }}>
-        <ul
-          style={{
-            listStyle: "none",
-            display: "flex",
-            flexDirection: "column",
-            gap: "0.5rem",
+            fontSize: "0.8rem",
+            fontWeight: "bold",
+            color: "#9e865a",
           }}
         >
-          <SidebarLink
-            to="/Dashboard.jsx"
-            label="Dashboard"
-            active={isActive("/Dashboard.jsx")}
-            collapsed={collapsed}
-          />
-          <SidebarLink
-            to="/Goals.jsx"
-            label="Goals"
-            active={isActive("/Goals.jsx")}
-            collapsed={collapsed}
-          />
-          <SidebarLink
-            to="/History.jsx"
-            label="History"
-            active={isActive("/History.jsx")}
-            collapsed={collapsed}
-          />
-          <SidebarLink
-            to="/Journal.jsx"
-            label="Journal"
-            active={isActive("/Journal.jsx")}
-            collapsed={collapsed}
-          />
-        </ul>
-      </nav>
+          MQ
+        </div>
 
-      {/* End Session button */}
-      <div style={{ marginTop: "1.5rem" }}>
-        <Button
-          name={collapsed ? "End" : "End Session"}
-          className="end-session-btn"
+        <span
           style={{
-            width: "100%",
-            backgroundColor: "#de3b40",
-            borderRadius: "999px",
-            height: "3rem",
-            fontSize: "0.9rem",
+            fontSize: "0.95rem",
+            color: "#9e865a",
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            fontWeight: 600,
           }}
-        />
+        >
+          MQ3™ Hub
+        </span>
       </div>
-    </aside>
-  );
-}
 
-function SidebarLink({ to, label, active, collapsed }) {
-  return (
-    <li>
-      <Link
-        to={to}
+      {/* Menu */}
+      <div
         style={{
-          display: "block",
-          padding: "0.7rem 0.9rem",
-          borderRadius: "999px",
-          textDecoration: "none",
-          fontSize: "0.9rem",
-          fontWeight: 500,
-          letterSpacing: "0.05em",
+          display: "flex",
+          flexDirection: "column",
+          gap: "0.75rem",
+          fontSize: "0.8rem",
           textTransform: "uppercase",
-          color: active ? "#000" : "#e5e7eb",
-          backgroundColor: active ? "#9e865a" : "transparent",
-          textAlign: collapsed ? "center" : "left",
-          whiteSpace: "nowrap",
         }}
       >
-        {collapsed ? label[0] : label}
-      </Link>
-    </li>
+        {menuItems.map(({ id, label }) => {
+          const isActive = activeSection === id;
+          return (
+            <button
+              key={id}
+              onClick={() => onNavigate && onNavigate(id)}
+              style={{
+                padding: "0.6rem 0.75rem",
+                borderRadius: "8px",
+                backgroundColor: isActive ? "#9e865a" : "transparent",
+                color: isActive ? "#000" : "#f5f5f5",
+                border: "none",
+                cursor: "pointer",
+                textAlign: "left",
+                fontWeight: isActive ? 600 : 500,
+                outline: "none",
+              }}
+              aria-current={isActive ? "page" : undefined}
+            >
+              {label}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Spacer pushes logout button to bottom */}
+      <div style={{ flexGrow: 1 }} />
+
+      {/* End Session button */}
+      <button
+        onClick={() => alert("Ending session")}
+        style={{
+          width: "100%",
+          padding: "0.75rem 1rem",
+          backgroundColor: "#de3b40",
+          border: "none",
+          color: "#fff",
+          fontWeight: 600,
+          borderRadius: "999px",
+          cursor: "pointer",
+          letterSpacing: "0.12em",
+          fontSize: "0.8rem",
+          textTransform: "uppercase",
+        }}
+      >
+        End Session
+      </button>
+    </nav>
   );
 }
