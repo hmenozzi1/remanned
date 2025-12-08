@@ -103,6 +103,9 @@ Repository layout (simplified):
         └── Pages/        # Welcome, Login, Dashboard, Goals, History, Journal
 
 
+```
+---
+
 ## PREREQUISITES
 
 Make sure you have the following installed:
@@ -116,6 +119,8 @@ Check versions:
 python --version
 node --version
 npm --version
+
+---
 
 ## INSTALLATION
 Clone the repository: https://github.com/hmenozzi1/remanned.git
@@ -148,7 +153,6 @@ exit()
 User.objects.all().values('user_id', 'name', 'email')
 
 **You should see: You should see**:
-```
 <QuerySet [{'user_id': 1, 'name': 'Test User', 'email': 'test@example.com'}]>
 then type exit()
 
@@ -158,15 +162,23 @@ cd remanned
 npm install
 npm install axios
 
+---
+
 ### ENVIRONMENT CONFIG
 Create .env file in remanned/ directory:
 envVITE_APP_API_URL=http://localhost:8000/api
 
+---
+
 ### RUNNING THE APPLICATION
-**Start backend**: 
+**Start backend** (Run the following code in terminal--bash): 
+
 cd remanned/backend
-activate venv if not already active: source venv/Scripts/activate
+
+source venv/Scripts/activate (activate venv if not already active) 
+
 python manage.py runserver
+
 Backend available at: http://127.0.0.1:8000/
 
 **Start frontend (in a seperate terminal)**: 
