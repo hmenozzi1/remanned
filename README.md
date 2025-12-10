@@ -116,20 +116,24 @@ Make sure you have the following installed:
 - Git
 
 Check versions:
+```
 python --version
 node --version
 npm --version
-
+```
 ---
 
 ## INSTALLATION
 Clone the repository: https://github.com/hmenozzi1/remanned.git
 
 ### Backend Setup
+```
 cd remanned/backend
+
 
 **Create virtual environment (bash)**:
 python -m venv venv
+
 
 **Activate virtual environment**:
 source venv/Scripts/activate
@@ -139,8 +143,10 @@ pip install django djangorestframework django-cors-headers
 
 **Apply migrations**:
 python manage.py migrate
+```
 
 **Create test user**:
+```
 python manage.py shell
 
 **In python shell**:
@@ -157,36 +163,38 @@ User.objects.all().values('user_id', 'name', 'email')
 **You should see: You should see**:
 <QuerySet [{'user_id': 1, 'name': 'Test User', 'email': 'test@example.com'}]>
 then type exit()
+```
 
 ### Frontend Setup (bash)
+```
 cd remanned
-
 npm install
-
 npm install axios
-
+```
 ---
 
 ### ENVIRONMENT CONFIG
 Create .env file in remanned/ directory:
+```
 envVITE_APP_API_URL=http://localhost:8000/api
-
+```
 ---
 
 ### RUNNING THE APPLICATION
 **Start backend** (Run the following code in terminal--bash): 
-
+```
 cd remanned/backend
-
 source venv/Scripts/activate (activate venv if not already active) 
-
 python manage.py runserver
-
+```
 Backend available at: http://127.0.0.1:8000/
 
 **Start frontend (in a seperate terminal)**: 
+```
 cd remanned
-npm run dev -- --host 127.0.0.1 --port 3000 **(port 5173 throwing error. Feel free to use an available port)**
+npm run dev -- --host 127.0.0.1 --port 3000
+```
+##**(port 5173 throwing error. Feel free to use an available port)**
 
 ## The app currently uses a hash router, so the main entry points will look like:
 
