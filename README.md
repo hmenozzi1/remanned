@@ -134,7 +134,6 @@ cd remanned/backend
 **Create virtual environment (bash)**:
 python -m venv venv
 
-
 **Activate virtual environment**:
 source venv/Scripts/activate
 
@@ -151,9 +150,7 @@ python manage.py shell
 
 **In python shell**:
 from api.models import User
-User.objects.create(name="Test User", email="test@example.com") 
-
-** hit enter, then exit()**/
+User.objects.create(name="Test User", email="test@example.com")  ## hit enter, then exit()
 
 exit()
 
@@ -186,15 +183,15 @@ envVITE_APP_API_URL=http://localhost:8000/api
 cd remanned/backend
 source venv/Scripts/activate (activate venv if not already active) 
 python manage.py runserver
+
+   ## Backend available at: http://127.0.0.1:8000/
 ```
-Backend available at: http://127.0.0.1:8000/
 
 **Start frontend (in a seperate terminal)**: 
 ```
 cd remanned
-npm run dev -- --host 127.0.0.1 --port 3000
+npm run dev -- --host 127.0.0.1 --port 3000   ##**(port 5173 throwing error. Feel free to use an available port)**
 ```
-##**(port 5173 throwing error. Feel free to use an available port)**
 
 ## The app currently uses a hash router, so the main entry points will look like:
 
